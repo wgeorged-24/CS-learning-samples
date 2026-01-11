@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Understanding Number Systems: From Denary to Binary</title>
+    <title>Understanding Algorithms</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -17,6 +17,7 @@
             --accent-yellow: #ffd60a;
             --accent-green: #00ff88;
             --accent-orange: #ff9500;
+            --accent-purple: #a855f7;
             --text-primary: #ffffff;
             --text-secondary: #8888aa;
             --text-muted: #555566;
@@ -52,7 +53,7 @@
             font-size: 2.4rem;
             font-weight: 700;
             margin-bottom: 12px;
-            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-magenta));
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -144,6 +145,16 @@
             font-size: 1rem;
         }
 
+        .learning-objective ul {
+            margin: 10px 0 0 0;
+            padding-left: 20px;
+            color: var(--text-primary);
+        }
+
+        .learning-objective li {
+            margin-bottom: 6px;
+        }
+
         h2 {
             font-size: 1.5rem;
             margin-bottom: 16px;
@@ -182,6 +193,11 @@
 
         .highlight-green {
             color: var(--accent-green);
+            font-weight: 600;
+        }
+
+        .highlight-purple {
+            color: var(--accent-purple);
             font-weight: 600;
         }
 
@@ -224,72 +240,102 @@
             margin: 0;
         }
 
-        /* Digit Display */
-        .digit-demo {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            justify-content: center;
+        /* Think About It Box */
+        .think-box {
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.1), rgba(168, 85, 247, 0.03));
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            border-radius: 12px;
+            padding: 16px 20px;
             margin: 20px 0;
         }
 
-        .digit-box {
-            width: 46px;
-            height: 46px;
+        .think-box-header {
             display: flex;
             align-items: center;
-            justify-content: center;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 1.3rem;
+            gap: 8px;
+            margin-bottom: 10px;
+            color: var(--accent-purple);
             font-weight: 600;
-            border-radius: 8px;
-            background: var(--bg-dark);
-            border: 2px solid var(--border-subtle);
-            transition: all 0.2s ease;
         }
 
-        .digit-box.highlighted {
-            border-color: var(--accent-cyan);
-            background: rgba(0, 212, 255, 0.1);
-        }
-
-        .digit-box.correct {
-            border-color: var(--accent-green);
-            background: rgba(0, 255, 136, 0.15);
-        }
-
-        /* Input Fields */
-        .input-field {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 1.1rem;
-            text-align: center;
-            width: 80px;
-            padding: 10px;
-            border: 2px solid var(--border-subtle);
-            border-radius: 8px;
-            background: var(--bg-dark);
+        .think-box p {
             color: var(--text-primary);
-            transition: all 0.2s ease;
+            margin: 0;
         }
 
-        .input-field:focus {
-            outline: none;
-            border-color: var(--accent-cyan);
-            box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
+        .think-box ul {
+            margin: 10px 0 0 0;
+            padding-left: 20px;
+            color: var(--text-primary);
         }
 
-        .input-field.correct {
-            border-color: var(--accent-green);
-            background: rgba(0, 255, 136, 0.1);
+        .think-box li {
+            margin-bottom: 6px;
         }
 
-        .input-field.incorrect {
-            border-color: var(--accent-magenta);
-            background: rgba(255, 0, 110, 0.1);
+        /* Connect Box - links to prior knowledge */
+        .connect-box {
+            background: linear-gradient(135deg, rgba(0, 255, 136, 0.08), rgba(0, 255, 136, 0.02));
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin: 20px 0;
         }
 
-        .input-field::placeholder {
-            color: var(--text-muted);
+        .connect-box-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 10px;
+            color: var(--accent-green);
+            font-weight: 600;
+        }
+
+        .connect-box p {
+            color: var(--text-primary);
+            margin: 0;
+        }
+
+        /* Example Box */
+        .example-box {
+            background: rgba(0, 212, 255, 0.08);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin: 20px 0;
+        }
+
+        .example-box-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        .example-badge {
+            background: var(--accent-cyan);
+            color: var(--bg-dark);
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 3px 8px;
+            border-radius: 4px;
+        }
+
+        .example-title {
+            font-weight: 600;
+            color: var(--accent-cyan);
+        }
+
+        .example-box ol {
+            margin: 0;
+            padding-left: 24px;
+            color: var(--text-primary);
+        }
+
+        .example-box li {
+            margin-bottom: 6px;
         }
 
         /* Question Box */
@@ -307,19 +353,76 @@
             margin-bottom: 16px;
         }
 
-        .input-row {
+        /* Multiple Choice Options */
+        .options {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            flex-wrap: wrap;
+            flex-direction: column;
+            gap: 10px;
         }
 
+        .option-btn {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            padding: 14px 20px;
+            border: 2px solid var(--border-subtle);
+            border-radius: 10px;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: left;
+        }
+
+        .option-btn:hover:not(:disabled) {
+            border-color: var(--accent-cyan);
+            transform: translateX(4px);
+        }
+
+        .option-btn.correct {
+            border-color: var(--accent-green);
+            background: rgba(0, 255, 136, 0.15);
+        }
+
+        .option-btn.incorrect {
+            border-color: var(--accent-magenta);
+            background: rgba(255, 0, 110, 0.15);
+        }
+
+        .option-btn:disabled {
+            cursor: not-allowed;
+            opacity: 0.85;
+        }
+
+        /* Input Fields */
+        .input-field {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid var(--border-subtle);
+            border-radius: 8px;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            transition: all 0.2s ease;
+            resize: vertical;
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
+        }
+
+        .input-field::placeholder {
+            color: var(--text-muted);
+        }
+
+        /* Buttons */
         .check-btn {
             font-family: 'Outfit', sans-serif;
             font-size: 0.95rem;
             font-weight: 500;
-            padding: 10px 20px;
+            padding: 12px 24px;
             border: none;
             border-radius: 8px;
             background: var(--accent-cyan);
@@ -328,7 +431,7 @@
             transition: all 0.2s ease;
         }
 
-        .check-btn:hover {
+        .check-btn:hover:not(:disabled) {
             transform: translateY(-2px);
             box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
         }
@@ -339,240 +442,48 @@
             transform: none;
         }
 
-        /* Multiple Choice */
-        .options {
-            display: flex;
-            gap: 12px;
-            justify-content: center;
-            flex-wrap: wrap;
+        .secondary-btn {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 500;
+            padding: 12px 24px;
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            background: var(--bg-card);
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.2s ease;
         }
 
-        .option-btn {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 1rem;
-            padding: 12px 22px;
-            border: 2px solid var(--border-subtle);
-            border-radius: 8px;
-            background: var(--bg-dark);
+        .secondary-btn:hover {
+            background: var(--bg-card-hover);
             color: var(--text-primary);
-            cursor: pointer;
-            transition: all 0.2s ease;
         }
 
-        .option-btn:hover:not(:disabled) {
-            border-color: var(--accent-cyan);
-            transform: translateY(-2px);
-        }
-
-        .option-btn.correct {
-            border-color: var(--accent-green);
-            background: rgba(0, 255, 136, 0.2);
-        }
-
-        .option-btn.incorrect {
-            border-color: var(--accent-magenta);
-            background: rgba(255, 0, 110, 0.2);
-        }
-
-        .option-btn:disabled {
-            cursor: not-allowed;
-            opacity: 0.8;
-        }
-
-        /* Place Value Table */
-        .place-value-table {
-            width: 100%;
-            margin: 20px 0;
-            border-collapse: separate;
-            border-spacing: 6px;
-        }
-
-        .place-value-table th,
-        .place-value-table td {
-            padding: 12px 8px;
-            text-align: center;
-            border-radius: 8px;
-        }
-
-        .place-value-table th {
-            background: var(--bg-dark);
-            font-family: 'JetBrains Mono', monospace;
-            color: var(--accent-cyan);
-            font-size: 0.95rem;
-        }
-
-        .place-value-table td {
-            background: var(--bg-dark);
-            border: 1px solid var(--border-subtle);
-        }
-
-        .place-value-table .power-cell {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
-
-        .place-value-table .value-cell {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: var(--accent-yellow);
-        }
-
-        .place-value-table .label-cell {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-        }
-
-        /* Interactive Place Value Table */
-        .interactive-table {
-            overflow-x: auto;
-        }
-
-        .interactive-table table {
-            width: 100%;
-            min-width: 500px;
-            border-collapse: separate;
-            border-spacing: 4px;
-            margin: 20px 0;
-        }
-
-        .interactive-table th,
-        .interactive-table td {
-            padding: 10px 6px;
-            text-align: center;
-            border-radius: 6px;
-            font-family: 'JetBrains Mono', monospace;
-        }
-
-        .interactive-table th {
-            background: rgba(0, 212, 255, 0.1);
-            color: var(--accent-cyan);
-            font-size: 0.85rem;
-        }
-
-        .interactive-table td {
-            background: var(--bg-dark);
-        }
-
-        .interactive-table .input-field {
-            width: 60px;
-            padding: 8px 4px;
+        .assess-btn {
+            font-family: 'Outfit', sans-serif;
             font-size: 1rem;
-        }
-
-        /* Binary Toggle Switches */
-        .binary-converter {
-            margin: 24px 0;
-        }
-
-        .bit-row {
-            display: flex;
-            justify-content: center;
-            gap: 6px;
-            flex-wrap: wrap;
-        }
-
-        .bit-column {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 6px;
-            min-width: 52px;
-        }
-
-        .place-label {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
-
-        .place-value {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 1.1rem;
             font-weight: 600;
-            color: var(--accent-cyan);
-        }
-
-        .bit-switch {
-            width: 52px;
-            height: 64px;
-            background: var(--bg-dark);
-            border: 2px solid var(--border-subtle);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 1.8rem;
-            font-weight: 700;
+            padding: 14px 28px;
+            border: none;
+            border-radius: 8px;
+            background: linear-gradient(135deg, var(--accent-green), var(--accent-cyan));
+            color: var(--bg-dark);
             cursor: pointer;
             transition: all 0.2s ease;
-            user-select: none;
+            display: block;
+            width: 100%;
+            margin-top: 16px;
         }
 
-        .bit-switch.off {
-            color: var(--text-muted);
+        .assess-btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(0, 255, 136, 0.3);
         }
 
-        .bit-switch.on {
-            color: var(--accent-green);
-            border-color: var(--accent-green);
-            background: rgba(0, 255, 136, 0.1);
-            box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
-        }
-
-        .bit-switch:hover {
-            transform: scale(1.05);
-        }
-
-        .bit-status {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: var(--text-muted);
-            height: 16px;
-        }
-
-        .bit-status.on {
-            color: var(--accent-green);
-        }
-
-        .result-display {
-            text-align: center;
-            margin-top: 24px;
-            padding: 20px;
-            background: var(--bg-dark);
-            border-radius: 12px;
-            border: 1px solid var(--border-subtle);
-        }
-
-        .result-label {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-bottom: 8px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .result-value {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 2.8rem;
-            font-weight: 700;
-            color: var(--accent-yellow);
-        }
-
-        .calculation {
-            margin-top: 14px;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-            min-height: 24px;
-        }
-
-        .calculation .active-bit {
-            color: var(--accent-green);
-            font-weight: 600;
+        .assess-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
         }
 
         /* Feedback */
@@ -605,6 +516,12 @@
             background: rgba(255, 214, 10, 0.1);
             border: 1px solid var(--accent-yellow);
             color: var(--accent-yellow);
+        }
+
+        .feedback.info {
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid var(--accent-cyan);
+            color: var(--accent-cyan);
         }
 
         /* Insight Box */
@@ -670,36 +587,382 @@
             font-size: 0.9em;
         }
 
-        /* Challenge Mode */
-        .challenge-prompt {
-            text-align: center;
-            padding: 24px;
-            background: linear-gradient(135deg, rgba(255, 214, 10, 0.1), rgba(255, 0, 110, 0.05));
+        /* Ordering Activity */
+        .order-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin: 20px 0;
+        }
+
+        .order-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--bg-dark);
+            border: 2px solid var(--border-subtle);
+            border-radius: 10px;
+            padding: 12px 16px;
+            transition: all 0.2s ease;
+        }
+
+        .order-item.correct-position {
+            border-color: var(--accent-green);
+            background: rgba(0, 255, 136, 0.08);
+        }
+
+        .order-item.wrong-position {
+            border-color: var(--accent-magenta);
+            background: rgba(255, 0, 110, 0.08);
+        }
+
+        .order-number {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--accent-cyan);
+            min-width: 24px;
+        }
+
+        .order-text {
+            flex: 1;
+            color: var(--text-primary);
+        }
+
+        .order-buttons {
+            display: flex;
+            gap: 6px;
+        }
+
+        .order-btn {
+            width: 32px;
+            height: 32px;
+            border: 1px solid var(--border-subtle);
+            border-radius: 6px;
+            background: var(--bg-card);
+            color: var(--text-secondary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+        }
+
+        .order-btn:hover {
+            background: var(--bg-card-hover);
+            color: var(--text-primary);
+            border-color: var(--accent-cyan);
+        }
+
+        .order-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        /* Robot Scenario Cards */
+        .scenario-card {
+            background: var(--bg-dark);
+            border: 2px solid var(--border-subtle);
             border-radius: 12px;
+            padding: 16px 20px;
+            margin: 12px 0;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .scenario-card:hover {
+            border-color: var(--accent-cyan);
+            transform: translateX(4px);
+        }
+
+        .scenario-card.selected {
+            border-color: var(--accent-purple);
+            background: rgba(168, 85, 247, 0.1);
+        }
+
+        .scenario-instruction {
+            color: var(--text-primary);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+        }
+
+        .scenario-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .robot-response {
+            background: rgba(168, 85, 247, 0.08);
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            border-radius: 10px;
+            padding: 16px 20px;
+            margin-top: 16px;
+            display: none;
+        }
+
+        .robot-response.show {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .robot-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 10px;
+            color: var(--accent-purple);
+            font-weight: 600;
+        }
+
+        .robot-text {
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+
+        .robot-problem {
+            color: var(--accent-yellow);
+            font-size: 0.9rem;
+            padding-top: 10px;
+            border-top: 1px solid rgba(168, 85, 247, 0.2);
+        }
+
+        /* Concept Cards */
+        .concept-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px;
+            margin: 20px 0;
+        }
+
+        .concept-card {
+            background: var(--bg-dark);
+            border: 2px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.2s ease;
+        }
+
+        .concept-card.sequence {
+            border-color: rgba(0, 212, 255, 0.4);
+        }
+
+        .concept-card.selection {
+            border-color: rgba(255, 214, 10, 0.4);
+        }
+
+        .concept-card.iteration {
+            border-color: rgba(0, 255, 136, 0.4);
+        }
+
+        .concept-icon {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .concept-name {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        .concept-card.sequence .concept-name { color: var(--accent-cyan); }
+        .concept-card.selection .concept-name { color: var(--accent-yellow); }
+        .concept-card.iteration .concept-name { color: var(--accent-green); }
+
+        .concept-example {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            font-style: italic;
+            margin-bottom: 12px;
+        }
+
+        .concept-card .options {
+            margin-top: 12px;
+        }
+
+        .concept-card .option-btn {
+            padding: 10px 14px;
+            font-size: 0.9rem;
+        }
+
+        /* Design Task */
+        .task-dropdown {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            padding: 12px 16px;
+            border: 2px solid var(--border-subtle);
+            border-radius: 8px;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            width: 100%;
+            max-width: 300px;
+            cursor: pointer;
             margin-bottom: 20px;
         }
 
-        .challenge-prompt .target {
+        .task-dropdown:focus {
+            outline: none;
+            border-color: var(--accent-cyan);
+        }
+
+        .step-inputs {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .step-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .step-number {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 3.2rem;
-            font-weight: 700;
-            color: var(--accent-yellow);
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--accent-cyan);
+            min-width: 60px;
         }
 
-        .challenge-prompt p {
-            color: var(--text-secondary);
-            margin-top: 8px;
+        .step-row .input-field {
+            flex: 1;
         }
 
+        .example-toggle {
+            margin: 20px 0;
+        }
+
+        .toggle-content {
+            display: none;
+            margin-top: 12px;
+        }
+
+        .toggle-content.show {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        /* Algorithm Output Box */
+        .algorithm-output {
+            background: var(--bg-dark);
+            border: 2px solid var(--accent-green);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin: 20px 0;
+            display: none;
+        }
+
+        .algorithm-output.show {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .algorithm-output-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 16px;
+            color: var(--accent-green);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .algorithm-output ol {
+            margin: 0;
+            padding-left: 24px;
+            color: var(--text-primary);
+        }
+
+        .algorithm-output li {
+            margin-bottom: 8px;
+            padding: 8px 12px;
+            background: rgba(0, 255, 136, 0.05);
+            border-radius: 6px;
+            margin-left: -12px;
+            padding-left: 24px;
+        }
+
+        /* Self-check list */
+        .self-check {
+            margin: 20px 0;
+        }
+
+        .self-check-header {
+            color: var(--accent-orange);
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .check-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .check-item:last-child {
+            border-bottom: none;
+        }
+
+        .check-item input[type="checkbox"] {
+            width: 22px;
+            height: 22px;
+            accent-color: var(--accent-green);
+            cursor: pointer;
+        }
+
+        .check-item label {
+            color: var(--text-primary);
+            cursor: pointer;
+            flex: 1;
+        }
+
+        /* Copy to book prompt */
+        .copy-prompt {
+            background: linear-gradient(135deg, rgba(255, 149, 0, 0.15), rgba(255, 214, 10, 0.08));
+            border: 2px dashed rgba(255, 149, 0, 0.5);
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin-top: 20px;
+            text-align: center;
+            display: none;
+        }
+
+        .copy-prompt.show {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .copy-prompt p {
+            color: var(--accent-orange);
+            margin: 0;
+            font-weight: 500;
+        }
+
+        /* Quiz Score Display */
         .score-display {
             text-align: center;
-            margin-bottom: 16px;
+            padding: 24px;
+            background: linear-gradient(135deg, rgba(0, 255, 136, 0.1), rgba(0, 212, 255, 0.1));
+            border-radius: 12px;
+            margin: 20px 0;
         }
 
-        .score {
+        .score-value {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 1.1rem;
-            color: var(--accent-cyan);
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--accent-green);
+        }
+
+        .score-label {
+            color: var(--text-secondary);
+            margin-top: 8px;
         }
 
         /* Navigation */
@@ -733,7 +996,7 @@
         }
 
         .nav-btn.primary {
-            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-magenta));
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
             color: white;
         }
 
@@ -748,58 +1011,21 @@
             transform: none !important;
         }
 
-        /* Comparison Table */
-        .comparison-row {
-            display: flex;
-            gap: 16px;
-            margin: 20px 0;
-        }
-
-        .comparison-box {
-            flex: 1;
-            background: var(--bg-dark);
-            border: 1px solid var(--border-subtle);
-            border-radius: 12px;
-            padding: 16px;
-            text-align: center;
-        }
-
-        .comparison-box h4 {
-            color: var(--accent-cyan);
-            margin-bottom: 8px;
-            font-size: 1rem;
-        }
-
-        .comparison-box .big-number {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--accent-yellow);
-        }
-
-        .comparison-box p {
-            font-size: 0.9rem;
-            margin-top: 8px;
-        }
-
         /* Responsive */
         @media (max-width: 600px) {
             h1 { font-size: 1.8rem; }
             .card { padding: 20px; }
-            .bit-switch { width: 44px; height: 56px; font-size: 1.5rem; }
-            .bit-column { min-width: 46px; }
-            .place-value { font-size: 0.95rem; }
-            .result-value { font-size: 2.2rem; }
-            .comparison-row { flex-direction: column; }
-            .interactive-table .input-field { width: 50px; font-size: 0.9rem; }
+            .concept-cards { grid-template-columns: 1fr; }
+            .step-row { flex-direction: column; align-items: stretch; }
+            .step-number { min-width: auto; }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Understanding Number Systems</h1>
-            <p class="subtitle">From Denary to Binary — Understanding <em>why</em> place values work</p>
+            <h1>Understanding Algorithms</h1>
+            <p class="subtitle">Step-by-step instructions that computers can follow</p>
             <div class="progress-container">
                 <div class="progress-bar">
                     <div class="progress-dot active" data-section="0"></div>
@@ -815,84 +1041,123 @@
             </div>
         </header>
 
-        <!-- Section 0: Welcome & Context -->
+        <!-- Section 0: Welcome & Goals -->
         <section id="section-0" class="active">
+            <div class="card">
+                <h2>👋 Welcome</h2>
+                <p>In this lesson, you'll explore what <span class="highlight">algorithms</span> are and why they matter — not just in computing, but in everyday life.</p>
+                <p>You might have heard this word before in primary school. Don't worry if you've forgotten — we'll start from the beginning and build up your understanding step by step.</p>
+            </div>
+
             <div class="learning-objective">
-                <div class="learning-objective-label">What You'll Learn</div>
-                <p>By the end of this lesson, you'll understand <strong>why</strong> binary place values are 1, 2, 4, 8, 16... — not just memorise them.</p>
+                <div class="learning-objective-label">By the End of This Lesson, You Will Be Able To</div>
+                <ul>
+                    <li>Explain what an algorithm is in your own words</li>
+                    <li>Spot and fix problems in simple step-by-step instructions</li>
+                    <li>Create a short algorithm for an everyday task</li>
+                    <li>Recognise sequence, selection, and iteration in algorithms</li>
+                </ul>
             </div>
 
             <div class="card">
-                <h2>Welcome</h2>
-                <p>Every day, you use numbers without thinking about how they actually work. You know that in the number <span class="highlight">347</span>, the 3 represents three hundred, the 4 represents forty, and the 7 represents seven.</p>
-                <p>But have you ever stopped to ask: <em>why</em> are the place values 1, 10, 100, 1000? Why not 1, 5, 25, 125?</p>
-                <p>Once you understand the <span class="highlight-cyan">pattern</span> behind our everyday number system, understanding how computers use binary becomes simple.</p>
-            </div>
-
-            <div class="card">
-                <h3>What We'll Cover</h3>
-                <p>We'll build your understanding step by step:</p>
-                <ol style="color: var(--text-secondary); padding-left: 20px; margin-top: 12px;">
-                    <li style="margin-bottom: 8px;">How our everyday number system (denary) works</li>
-                    <li style="margin-bottom: 8px;">The pattern that creates place values</li>
-                    <li style="margin-bottom: 8px;">Why computers need a different system</li>
-                    <li style="margin-bottom: 8px;">How binary uses the same pattern with different numbers</li>
-                    <li>Converting between binary and denary</li>
-                </ol>
+                <h3>How This Works</h3>
+                <p>You'll work through short activities and mini-quizzes. There's no pressure — this is about exploring ideas, not getting everything perfect first time.</p>
+                <p>Each section has a <span class="highlight-cyan">notes summary</span> at the end that you can copy into your exercise book.</p>
             </div>
 
             <div class="nav-buttons">
                 <div></div>
-                <button class="nav-btn primary" onclick="nextSection()">Let's Begin →</button>
+                <button class="nav-btn primary" onclick="nextSection()">Let's Start →</button>
             </div>
         </section>
 
-        <!-- Section 1: Introduction to Denary -->
+        <!-- Section 1: What is an Algorithm? -->
         <section id="section-1">
             <div class="learning-objective">
                 <div class="learning-objective-label">Learning Objective</div>
-                <p>Understand what denary means and identify how many digits it uses.</p>
+                <p>Understand what an algorithm is and identify examples in everyday life.</p>
             </div>
 
             <div class="card">
-                <h2>Our Everyday Number System</h2>
-                <p>The number system you use every day has a proper name: <span class="highlight">denary</span> (also called <em>decimal</em>).</p>
-                
+                <h2>What is an Algorithm?</h2>
+                <p>You follow algorithms every day — you just might not call them that.</p>
+
+                <div class="connect-box">
+                    <div class="connect-box-header">🔗 Connect to What You Know</div>
+                    <p>Think about making your favourite food. You probably follow steps in a certain order — maybe you learned them from a parent, or from a recipe. That's an algorithm! It's a set of instructions that, if followed correctly, gets you to the same result every time.</p>
+                </div>
+
                 <div class="key-term">
                     <div class="key-term-header">
                         <span class="key-term-badge">Key Term</span>
-                        <span class="key-term-word">Denary</span>
+                        <span class="key-term-word">Algorithm</span>
                     </div>
-                    <p>The number system used by humans in everyday life. Also called the decimal system.</p>
+                    <p>A set of step-by-step instructions designed to perform a task or solve a problem.</p>
                 </div>
-
-                <p>Denary uses a set of <span class="highlight-cyan">digits</span> — the individual symbols we combine to write any number.</p>
             </div>
 
             <div class="card">
-                <h3>What digits does denary use?</h3>
-                <p>Here are all the digits available in denary:</p>
-                
-                <div class="digit-demo" id="denary-digits">
-                    <div class="digit-box">0</div>
-                    <div class="digit-box">1</div>
-                    <div class="digit-box">2</div>
-                    <div class="digit-box">3</div>
-                    <div class="digit-box">4</div>
-                    <div class="digit-box">5</div>
-                    <div class="digit-box">6</div>
-                    <div class="digit-box">7</div>
-                    <div class="digit-box">8</div>
-                    <div class="digit-box">9</div>
+                <h3>What Makes Something an Algorithm?</h3>
+                <p>Not every set of instructions counts as an algorithm. Let's think about what makes a good one:</p>
+
+                <div class="think-box">
+                    <div class="think-box-header">🤔 Think About It</div>
+                    <p>Imagine you're explaining to a friend how to get to your house. What would make your directions <em>good</em>?</p>
+                    <ul>
+                        <li>They need to know where to <strong>start</strong></li>
+                        <li>Each step needs to be in the <strong>right order</strong></li>
+                        <li>The instructions need to be <strong>clear enough</strong> that they don't have to keep texting you to ask "what do you mean?"</li>
+                    </ul>
                 </div>
 
-                <div class="question-box">
-                    <p>Count the digits shown above. How many digits does denary use?</p>
-                    <div class="input-row">
-                        <input type="number" class="input-field" id="denary-count-input" placeholder="?" min="1" max="20">
-                        <button class="check-btn" onclick="checkDenaryCount()">Check</button>
+                <p>These are exactly the features of a good algorithm:</p>
+                <ul style="color: var(--text-secondary); padding-left: 20px; margin-top: 10px;">
+                    <li style="margin-bottom: 8px;">It has a <span class="highlight-cyan">clear goal</span> (what you're trying to achieve)</li>
+                    <li style="margin-bottom: 8px;">It has <span class="highlight-cyan">ordered steps</span> (the sequence matters)</li>
+                    <li>It can be <span class="highlight-cyan">followed by anyone</span> (or anything) without needing to ask questions</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>A Real Example</h3>
+                <p>Here's an everyday algorithm you might recognise:</p>
+
+                <div class="example-box">
+                    <div class="example-box-header">
+                        <span class="example-badge">Example</span>
+                        <span class="example-title">Making a Cup of Tea</span>
                     </div>
-                    <div id="denary-count-feedback" class="feedback"></div>
+                    <ol>
+                        <li>Fill the kettle with water</li>
+                        <li>Turn the kettle on</li>
+                        <li>Put a teabag in a mug</li>
+                        <li>Wait for the kettle to boil</li>
+                        <li>Pour boiling water into the mug</li>
+                        <li>Wait 2-3 minutes</li>
+                        <li>Remove the teabag</li>
+                        <li>Add milk if desired</li>
+                    </ol>
+                </div>
+
+                <div class="think-box">
+                    <div class="think-box-header">🤔 Think About It</div>
+                    <p>What would happen if you did step 5 before step 2? Or step 7 before step 5? The order isn't random — each step depends on the ones before it.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Check Your Understanding</h3>
+                <p>Now you've seen what makes an algorithm, let's see if you can spot one:</p>
+
+                <div class="question-box">
+                    <p>Which of these is the best example of an algorithm?</p>
+                    <div class="options" id="algo-quiz-1">
+                        <button class="option-btn" onclick="checkAlgoQuiz1('A')">A) "Make something nice for dinner"</button>
+                        <button class="option-btn" onclick="checkAlgoQuiz1('B')">B) "1. Preheat oven to 180°C. 2. Mix flour and sugar. 3. Add eggs. 4. Pour into tin. 5. Bake for 25 minutes."</button>
+                        <button class="option-btn" onclick="checkAlgoQuiz1('C')">C) "Cooking is fun and creative"</button>
+                        <button class="option-btn" onclick="checkAlgoQuiz1('D')">D) "You know how to make a cake, right?"</button>
+                    </div>
+                    <div id="algo-quiz-1-feedback" class="feedback"></div>
                 </div>
             </div>
 
@@ -902,9 +1167,9 @@
                     <h4>Notes for This Section</h4>
                 </div>
                 <ul>
-                    <li><strong>Denary</strong> (or decimal) is the number system humans use every day</li>
-                    <li>Denary uses <strong>10 digits</strong>: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9</li>
-                    <li>Important: We count from 0, not from 1 — so it's 0-9, not 1-10</li>
+                    <li><strong>Algorithm</strong> = a set of step-by-step instructions to complete a task or solve a problem</li>
+                    <li>Algorithms have a <strong>clear goal</strong>, <strong>ordered steps</strong>, and can be followed without asking questions</li>
+                    <li>Examples: recipes, directions, assembly instructions, morning routines</li>
                 </ul>
             </div>
 
@@ -914,41 +1179,84 @@
             </div>
         </section>
 
-        <!-- Section 2: Base 10 Explained -->
+        <!-- Section 2: Everyday Algorithms (Ordering Activity) -->
         <section id="section-2">
             <div class="learning-objective">
                 <div class="learning-objective-label">Learning Objective</div>
-                <p>Understand what "base" means and why denary is called Base 10.</p>
+                <p>Understand that the order of steps in an algorithm matters.</p>
             </div>
 
             <div class="card">
-                <h2>Why "Base 10"?</h2>
-                <p>Because denary uses <span class="highlight">10 digits</span>, we call it <span class="highlight-cyan">Base 10</span>.</p>
-                
-                <div class="key-term">
-                    <div class="key-term-header">
-                        <span class="key-term-badge">Key Term</span>
-                        <span class="key-term-word">Base</span>
-                    </div>
-                    <p>The number of different digits a number system uses. Denary is Base 10 because it uses 10 different digits (0-9).</p>
+                <h2>Order Matters</h2>
+                <p>We've said that algorithms have <span class="highlight">ordered steps</span>. But why does order matter so much?</p>
+
+                <div class="connect-box">
+                    <div class="connect-box-header">🔗 Think About It This Way</div>
+                    <p>Imagine getting dressed in the morning. You could put on a t-shirt, then a jumper, then a coat. But if you put the coat on first, then tried to put the jumper over it... it wouldn't work! The <em>same steps</em> in a <em>different order</em> give you a completely different (and probably wrong) result.</p>
                 </div>
+
+                <p>The same is true for algorithms. Even if you have all the right steps, putting them in the wrong order can:</p>
+                <ul style="color: var(--text-secondary); padding-left: 20px; margin-top: 10px;">
+                    <li style="margin-bottom: 8px;">Make the task <span class="highlight-magenta">impossible</span> to complete</li>
+                    <li style="margin-bottom: 8px;">Give you the <span class="highlight-magenta">wrong result</span></li>
+                    <li>Cause <span class="highlight-magenta">errors or problems</span></li>
+                </ul>
 
                 <div class="insight">
-                    <p>💡 <strong>Common mistake:</strong> People often think "1, 2, 3, 4, 5, 6, 7, 8, 9, 10" — but <span class="highlight-magenta">10 is not a digit</span>! It's a two-digit number. The digits are 0 through 9.</p>
+                    <p>💡 When we write algorithms for computers, getting the order wrong doesn't just look silly — it can completely break the program or cause unexpected behaviour.</p>
                 </div>
             </div>
 
             <div class="card">
-                <h3>Quick Check</h3>
-                <div class="question-box">
-                    <p>If a number system uses 8 different digits (0-7), what base would it be?</p>
-                    <div class="input-row">
-                        <span style="color: var(--text-secondary);">Base</span>
-                        <input type="number" class="input-field" id="base-check-input" placeholder="?" min="1" max="20">
-                        <button class="check-btn" onclick="checkBaseUnderstanding()">Check</button>
-                    </div>
-                    <div id="base-check-feedback" class="feedback"></div>
+                <h3>Your Turn: Put These Steps in Order</h3>
+                <p>These steps for making a bowl of cereal have been jumbled up. Your job is to put them in the correct order.</p>
+                
+                <div class="think-box">
+                    <div class="think-box-header">🤔 Before You Start</div>
+                    <p>Read through all the steps first. Ask yourself: "Which step <em>must</em> happen before I can do the others?" That's probably your first step.</p>
                 </div>
+
+                <p>Use the arrow buttons to move steps up or down:</p>
+
+                <div class="order-list" id="cereal-order">
+                    <div class="order-item" data-correct="4">
+                        <span class="order-number">1.</span>
+                        <span class="order-text">Eat the cereal with a spoon</span>
+                        <div class="order-buttons">
+                            <button class="order-btn" onclick="moveItem(this, -1)">↑</button>
+                            <button class="order-btn" onclick="moveItem(this, 1)">↓</button>
+                        </div>
+                    </div>
+                    <div class="order-item" data-correct="2">
+                        <span class="order-number">2.</span>
+                        <span class="order-text">Pour cereal into the bowl</span>
+                        <div class="order-buttons">
+                            <button class="order-btn" onclick="moveItem(this, -1)">↑</button>
+                            <button class="order-btn" onclick="moveItem(this, 1)">↓</button>
+                        </div>
+                    </div>
+                    <div class="order-item" data-correct="1">
+                        <span class="order-number">3.</span>
+                        <span class="order-text">Get a bowl from the cupboard</span>
+                        <div class="order-buttons">
+                            <button class="order-btn" onclick="moveItem(this, -1)">↑</button>
+                            <button class="order-btn" onclick="moveItem(this, 1)">↓</button>
+                        </div>
+                    </div>
+                    <div class="order-item" data-correct="3">
+                        <span class="order-number">4.</span>
+                        <span class="order-text">Pour milk over the cereal</span>
+                        <div class="order-buttons">
+                            <button class="order-btn" onclick="moveItem(this, -1)">↑</button>
+                            <button class="order-btn" onclick="moveItem(this, 1)">↓</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="text-align: center;">
+                    <button class="check-btn" onclick="checkCerealOrder()">Check My Order</button>
+                </div>
+                <div id="cereal-feedback" class="feedback"></div>
             </div>
 
             <div class="notes-summary" id="notes-2" style="display: none;">
@@ -957,9 +1265,9 @@
                     <h4>Notes for This Section</h4>
                 </div>
                 <ul>
-                    <li><strong>Base</strong> = the number of different digits in a number system</li>
-                    <li>Denary uses 10 digits, so it's <strong>Base 10</strong></li>
-                    <li>The base is always equal to how many digit options you have (0 up to base-1)</li>
+                    <li>The <strong>order of steps</strong> in an algorithm is important</li>
+                    <li>Steps in the wrong order can make the algorithm fail or produce wrong results</li>
+                    <li>When writing algorithms, always think: "Does this step need to happen before or after the others?"</li>
                 </ul>
             </div>
 
@@ -969,84 +1277,102 @@
             </div>
         </section>
 
-        <!-- Section 3: Denary Place Values -->
+        <!-- Section 3: Precision and Ambiguity -->
         <section id="section-3">
             <div class="learning-objective">
                 <div class="learning-objective-label">Learning Objective</div>
-                <p>Understand how the base determines place values using powers.</p>
+                <p>Understand why algorithms must be precise and unambiguous.</p>
             </div>
 
             <div class="card">
-                <h2>The Base Controls Everything</h2>
-                <p>Here's the key insight: <span class="highlight">the base determines the place values</span>.</p>
-                <p>In Base 10, every place value is a <span class="highlight-cyan">power of 10</span>:</p>
+                <h2>The Robot Problem</h2>
+                <p>Here's something important about computers: <span class="highlight">they do exactly what you tell them</span> — not what you <em>meant</em> to tell them.</p>
 
-                <table class="place-value-table">
-                    <tr>
-                        <th>Power</th>
-                        <td class="power-cell">10<sup>3</sup></td>
-                        <td class="power-cell">10<sup>2</sup></td>
-                        <td class="power-cell">10<sup>1</sup></td>
-                        <td class="power-cell">10<sup>0</sup></td>
-                    </tr>
-                    <tr>
-                        <th>Place Value</th>
-                        <td class="value-cell">1000</td>
-                        <td class="value-cell">100</td>
-                        <td class="value-cell">10</td>
-                        <td class="value-cell">1</td>
-                    </tr>
-                    <tr>
-                        <th>Name</th>
-                        <td class="label-cell">Thousands</td>
-                        <td class="label-cell">Hundreds</td>
-                        <td class="label-cell">Tens</td>
-                        <td class="label-cell">Units</td>
-                    </tr>
-                </table>
-
-                <div class="insight">
-                    <p>💡 Notice the pattern: each place value is <span class="highlight-cyan">10 times bigger</span> than the one to its right. That's because we're in Base <strong>10</strong>.</p>
+                <div class="connect-box">
+                    <div class="connect-box-header">🔗 Think About It This Way</div>
+                    <p>If you ask a friend to "grab your bag from the car," they'll probably figure out which bag you mean, where the car is, and bring it to you. They use <em>common sense</em> to fill in the gaps.</p>
+                    <p style="margin-top: 10px;">Computers don't have common sense. They're more like a very literal robot that does <em>exactly</em> what you say — nothing more, nothing less. If your instructions have gaps or could mean more than one thing, the computer will either do the wrong thing or get stuck.</p>
                 </div>
-            </div>
 
-            <div class="card">
-                <h3>Your Turn: Calculate the Place Values</h3>
-                <p>Fill in the place values by calculating each power of 10:</p>
-                
                 <div class="key-term">
                     <div class="key-term-header">
-                        <span class="key-term-badge">How Powers Work</span>
-                        <span class="key-term-word">"To the power of" means repeated multiplication</span>
+                        <span class="key-term-badge">Key Term</span>
+                        <span class="key-term-word">Ambiguous</span>
                     </div>
-                    <p>10<sup>2</sup> means 10 × 10 = 100</p>
-                    <p style="margin-top: 4px;">10<sup>3</sup> means 10 × 10 × 10 = 1000</p>
-                    <p style="margin-top: 4px;">10<sup>1</sup> means just 10 (multiply once)</p>
-                    <p style="margin-top: 4px;">10<sup>0</sup> = 1 (any number to the power of 0 equals 1)</p>
+                    <p>Having more than one possible meaning. Ambiguous instructions are a problem because different people (or computers) might interpret them differently.</p>
                 </div>
+            </div>
+
+            <div class="card">
+                <h3>🤖 Robot Simulator</h3>
+                <p>Let's see this in action. Imagine you're giving instructions to a very literal robot that has no common sense at all.</p>
                 
-                <div class="interactive-table">
-                    <table>
-                        <tr>
-                            <th>Power of 10</th>
-                            <th>10<sup>3</sup></th>
-                            <th>10<sup>2</sup></th>
-                            <th>10<sup>1</sup></th>
-                            <th>10<sup>0</sup></th>
-                        </tr>
-                        <tr>
-                            <td style="color: var(--text-secondary); font-family: 'Outfit', sans-serif;">Place Value</td>
-                            <td><input type="number" class="input-field" id="pv-10-3" placeholder="?"></td>
-                            <td><input type="number" class="input-field" id="pv-10-2" placeholder="?"></td>
-                            <td><input type="number" class="input-field" id="pv-10-1" placeholder="?"></td>
-                            <td><input type="number" class="input-field" id="pv-10-0" placeholder="?"></td>
-                        </tr>
-                    </table>
+                <div class="think-box">
+                    <div class="think-box-header">🤔 Before You Click</div>
+                    <p>For each instruction below, try to predict: what might go wrong if a robot followed this <em>exactly</em> as written?</p>
                 </div>
-                <div style="text-align: center; margin-top: 12px;">
-                    <button class="check-btn" onclick="checkDenaryPlaceValues()">Check Answers</button>
+
+                <p>Click on each instruction to see how the robot interprets it:</p>
+
+                <div id="robot-scenarios">
+                    <div class="scenario-card" onclick="showRobotResponse(1)">
+                        <div class="scenario-instruction">"Draw a face"</div>
+                        <div class="scenario-label">Click to see what the robot does</div>
+                    </div>
+
+                    <div class="robot-response" id="robot-response-1">
+                        <div class="robot-header">🤖 Robot Response:</div>
+                        <div class="robot-text">The robot draws a single circle. Nothing else.</div>
+                        <div class="robot-problem">⚠️ Problem: The instruction doesn't say to add eyes, a nose, or a mouth. It doesn't say how big the face should be or where to draw it.</div>
+                    </div>
+
+                    <div class="scenario-card" onclick="showRobotResponse(2)">
+                        <div class="scenario-instruction">"Make a sandwich with cheese"</div>
+                        <div class="scenario-label">Click to see what the robot does</div>
+                    </div>
+
+                    <div class="robot-response" id="robot-response-2">
+                        <div class="robot-header">🤖 Robot Response:</div>
+                        <div class="robot-text">The robot places a block of cheese on top of an unsliced loaf of bread.</div>
+                        <div class="robot-problem">⚠️ Problem: The instruction doesn't say to slice the bread, how much cheese to use, or that the cheese should go between two slices.</div>
+                    </div>
+
+                    <div class="scenario-card" onclick="showRobotResponse(3)">
+                        <div class="scenario-instruction">"Walk to the door and open it"</div>
+                        <div class="scenario-label">Click to see what the robot does</div>
+                    </div>
+
+                    <div class="robot-response" id="robot-response-3">
+                        <div class="robot-header">🤖 Robot Response:</div>
+                        <div class="robot-text">The robot walks directly towards the door in a straight line, crashing into a table that's in the way.</div>
+                        <div class="robot-problem">⚠️ Problem: The instruction doesn't say to avoid obstacles or which route to take.</div>
+                    </div>
                 </div>
-                <div id="denary-pv-feedback" class="feedback"></div>
+            </div>
+
+            <div class="card">
+                <h3>The Lesson</h3>
+                <p>When we write algorithms — especially for computers — we need to be <span class="highlight-cyan">precise</span> and <span class="highlight-cyan">unambiguous</span>.</p>
+                
+                <div class="think-box">
+                    <div class="think-box-header">🤔 The Golden Question</div>
+                    <p>Whenever you write an algorithm, ask yourself: <em>"Could someone follow this without asking me any questions?"</em></p>
+                    <p style="margin-top: 8px;">If the answer is no, your algorithm probably needs more detail.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Check Your Understanding</h3>
+                <div class="question-box">
+                    <p>Which instruction is the MOST precise and unambiguous?</p>
+                    <div class="options" id="precision-quiz">
+                        <button class="option-btn" onclick="checkPrecisionQuiz('A')">A) "Draw a nice picture"</button>
+                        <button class="option-btn" onclick="checkPrecisionQuiz('B')">B) "Draw a red circle with a radius of 5cm in the centre of the page"</button>
+                        <button class="option-btn" onclick="checkPrecisionQuiz('C')">C) "Draw something round and colourful"</button>
+                        <button class="option-btn" onclick="checkPrecisionQuiz('D')">D) "Draw a circle somewhere"</button>
+                    </div>
+                    <div id="precision-feedback" class="feedback"></div>
+                </div>
             </div>
 
             <div class="notes-summary" id="notes-3" style="display: none;">
@@ -1055,10 +1381,10 @@
                     <h4>Notes for This Section</h4>
                 </div>
                 <ul>
-                    <li>In Base 10, place values are <strong>powers of 10</strong></li>
-                    <li><code>10⁰ = 1</code> (units), <code>10¹ = 10</code> (tens), <code>10² = 100</code> (hundreds), <code>10³ = 1000</code> (thousands)</li>
-                    <li>Any number to the power of 0 equals 1</li>
-                    <li>Each place value is 10× the previous one</li>
+                    <li>Computers follow instructions <strong>exactly</strong> — they can't guess what you meant</li>
+                    <li><strong>Ambiguous</strong> = having more than one possible meaning</li>
+                    <li>Good algorithms must be <strong>precise</strong> and <strong>unambiguous</strong></li>
+                    <li>Always ask: "Could someone follow this without asking any questions?"</li>
                 </ul>
             </div>
 
@@ -1068,51 +1394,137 @@
             </div>
         </section>
 
-        <!-- Section 4: Why Computers Use Binary -->
+        <!-- Section 4: Sequence, Selection, Iteration -->
         <section id="section-4">
             <div class="learning-objective">
                 <div class="learning-objective-label">Learning Objective</div>
-                <p>Understand why computers must use binary (Base 2) instead of denary.</p>
+                <p>Recognise the three building blocks of algorithms: sequence, selection, and iteration.</p>
             </div>
 
             <div class="card">
-                <h2>The Computer's Problem</h2>
-                <p>Computers are made of billions of tiny components called <span class="highlight">transistors</span>. A modern processor might have over 10 billion of them.</p>
-                
+                <h2>The Three Building Blocks</h2>
+                <p>Here's something remarkable: every algorithm ever written — from a simple recipe to the code running your favourite game — is built from just <span class="highlight">three simple ideas</span>.</p>
+
+                <div class="connect-box">
+                    <div class="connect-box-header">🔗 Think About It This Way</div>
+                    <p>It's like LEGO. With just a few types of bricks, you can build almost anything. Algorithms work the same way — three building blocks, endless possibilities.</p>
+                </div>
+            </div>
+
+            <div class="concept-cards">
+                <div class="concept-card sequence">
+                    <div class="concept-icon">➡️</div>
+                    <div class="concept-name">Sequence</div>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 0;">Steps that happen one after another, in order.</p>
+                </div>
+                <div class="concept-card selection">
+                    <div class="concept-icon">🔀</div>
+                    <div class="concept-name">Selection</div>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 0;">Making a choice based on a condition (IF something is true, THEN do this).</p>
+                </div>
+                <div class="concept-card iteration">
+                    <div class="concept-icon">🔁</div>
+                    <div class="concept-name">Iteration</div>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 0;">Repeating steps until something happens (also called a loop).</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Let's Break These Down</h3>
+
                 <div class="key-term">
                     <div class="key-term-header">
                         <span class="key-term-badge">Key Term</span>
-                        <span class="key-term-word">Transistor</span>
+                        <span class="key-term-word">Sequence</span>
                     </div>
-                    <p>A microscopic electronic switch inside a computer. Each transistor can only be in one of two states: ON or OFF.</p>
+                    <p>Instructions that are followed one after another, in order. This is the simplest building block — just "do this, then do that, then do the next thing."</p>
                 </div>
 
-                <p>This is a physical limitation — transistors are switches, and switches can only be <span class="highlight-green">on</span> or <span class="highlight-magenta">off</span>. There's no "half on" or "sort of off".</p>
+                <div class="example-box">
+                    <div class="example-box-header">
+                        <span class="example-badge">Example</span>
+                        <span class="example-title">Sequence in Real Life</span>
+                    </div>
+                    <p style="color: var(--text-primary); margin: 0;">When you cross a road: <em>Stop at the kerb → Look left → Look right → Look left again → Cross if clear</em>. Each step happens in order, one after another.</p>
+                </div>
+
+                <div class="key-term" style="margin-top: 24px;">
+                    <div class="key-term-header">
+                        <span class="key-term-badge">Key Term</span>
+                        <span class="key-term-word">Selection</span>
+                    </div>
+                    <p>Making a decision based on whether something is true or false. We often write this as "IF... THEN..." — <em>if</em> a condition is met, <em>then</em> do something.</p>
+                </div>
+
+                <div class="example-box">
+                    <div class="example-box-header">
+                        <span class="example-badge">Example</span>
+                        <span class="example-title">Selection in Real Life</span>
+                    </div>
+                    <p style="color: var(--text-primary); margin: 0;"><em>IF it is raining, THEN take an umbrella.</em> You're not always taking an umbrella — you make a choice based on the weather.</p>
+                </div>
+
+                <div class="key-term" style="margin-top: 24px;">
+                    <div class="key-term-header">
+                        <span class="key-term-badge">Key Term</span>
+                        <span class="key-term-word">Iteration</span>
+                    </div>
+                    <p>Repeating one or more steps. The word "iterate" means "to repeat." We often write this as "REPEAT... UNTIL..." or "WHILE... DO...". Also called a <strong>loop</strong>.</p>
+                </div>
+
+                <div class="example-box">
+                    <div class="example-box-header">
+                        <span class="example-badge">Example</span>
+                        <span class="example-title">Iteration in Real Life</span>
+                    </div>
+                    <p style="color: var(--text-primary); margin: 0;"><em>Keep rolling the dice UNTIL you get a 6.</em> You repeat the same action (rolling) until a condition is met (getting a 6).</p>
+                </div>
             </div>
 
             <div class="card">
-                <h3>Two States = Two Digits</h3>
-                <p>Because transistors only have two states, computers can only use <span class="highlight-cyan">two digits</span>:</p>
-                
-                <div style="display: flex; justify-content: center; gap: 50px; margin: 28px 0;">
-                    <div style="text-align: center;">
-                        <div class="bit-switch off" style="cursor: default;">0</div>
-                        <p style="margin-top: 10px; color: var(--text-muted); font-size: 0.9rem;">OFF</p>
+                <h3>Spot the Building Block</h3>
+                <p>Now let's see if you can identify which building block each example is showing. Take your time — think about what's happening in each one before you answer.</p>
+
+                <div class="question-box">
+                    <p><strong>Example 1:</strong> <em>"Wash each plate in the sink, one by one, until the stack is empty."</em></p>
+                    <div class="think-box" style="margin: 12px 0;">
+                        <div class="think-box-header">🤔 Hint</div>
+                        <p>What's the key action here? Are you doing things in order, making a choice, or repeating something?</p>
                     </div>
-                    <div style="text-align: center;">
-                        <div class="bit-switch on" style="cursor: default;">1</div>
-                        <p style="margin-top: 10px; color: var(--accent-green); font-size: 0.9rem;">ON</p>
+                    <div class="options" id="concept-quiz-1">
+                        <button class="option-btn" onclick="checkConceptQuiz(1, 'sequence')">Sequence</button>
+                        <button class="option-btn" onclick="checkConceptQuiz(1, 'selection')">Selection</button>
+                        <button class="option-btn" onclick="checkConceptQuiz(1, 'iteration')">Iteration</button>
                     </div>
+                    <div id="concept-feedback-1" class="feedback"></div>
                 </div>
 
                 <div class="question-box">
-                    <p>A number system with only 2 digits (0 and 1) would be called Base...?</p>
-                    <div class="input-row">
-                        <span style="color: var(--text-secondary);">Base</span>
-                        <input type="number" class="input-field" id="binary-base-input" placeholder="?" min="1" max="20">
-                        <button class="check-btn" onclick="checkBinaryBase()">Check</button>
+                    <p><strong>Example 2:</strong> <em>"IF the light is red, THEN stop. OTHERWISE, continue walking."</em></p>
+                    <div class="think-box" style="margin: 12px 0;">
+                        <div class="think-box-header">🤔 Hint</div>
+                        <p>Look for the IF. What happens depends on whether something is true or false.</p>
                     </div>
-                    <div id="binary-base-feedback" class="feedback"></div>
+                    <div class="options" id="concept-quiz-2">
+                        <button class="option-btn" onclick="checkConceptQuiz(2, 'sequence')">Sequence</button>
+                        <button class="option-btn" onclick="checkConceptQuiz(2, 'selection')">Selection</button>
+                        <button class="option-btn" onclick="checkConceptQuiz(2, 'iteration')">Iteration</button>
+                    </div>
+                    <div id="concept-feedback-2" class="feedback"></div>
+                </div>
+
+                <div class="question-box">
+                    <p><strong>Example 3:</strong> <em>"Put on socks. Put on shoes. Tie laces."</em></p>
+                    <div class="think-box" style="margin: 12px 0;">
+                        <div class="think-box-header">🤔 Hint</div>
+                        <p>No choices being made here, and nothing is repeating. What's left?</p>
+                    </div>
+                    <div class="options" id="concept-quiz-3">
+                        <button class="option-btn" onclick="checkConceptQuiz(3, 'sequence')">Sequence</button>
+                        <button class="option-btn" onclick="checkConceptQuiz(3, 'selection')">Selection</button>
+                        <button class="option-btn" onclick="checkConceptQuiz(3, 'iteration')">Iteration</button>
+                    </div>
+                    <div id="concept-feedback-3" class="feedback"></div>
                 </div>
             </div>
 
@@ -1122,10 +1534,10 @@
                     <h4>Notes for This Section</h4>
                 </div>
                 <ul>
-                    <li><strong>Transistors</strong> are tiny switches inside computers</li>
-                    <li>Transistors can only be in two states: ON or OFF</li>
-                    <li>We represent these states as <strong>1</strong> (on) and <strong>0</strong> (off)</li>
-                    <li>Because computers only have 2 digit options, they use <strong>Base 2</strong></li>
+                    <li><strong>Sequence</strong> = steps that happen one after another, in order</li>
+                    <li><strong>Selection</strong> = making a choice (IF... THEN...)</li>
+                    <li><strong>Iteration</strong> = repeating steps (also called a loop)</li>
+                    <li>All algorithms are built from these three building blocks</li>
                 </ul>
             </div>
 
@@ -1135,384 +1547,312 @@
             </div>
         </section>
 
-        <!-- Section 5: Binary Explained -->
+        <!-- Section 5: Design Your Own Algorithm -->
         <section id="section-5">
             <div class="learning-objective">
                 <div class="learning-objective-label">Learning Objective</div>
-                <p>Understand what binary is and calculate its place values.</p>
+                <p>Create your own algorithm for an everyday task.</p>
             </div>
 
             <div class="card">
-                <h2>Binary: The Computer's Number System</h2>
-                
-                <div class="key-term">
-                    <div class="key-term-header">
-                        <span class="key-term-badge">Key Term</span>
-                        <span class="key-term-word">Binary</span>
-                    </div>
-                    <p>A Base 2 number system using only two digits: 0 and 1. Used by all computers because transistors can only be on or off.</p>
-                </div>
+                <h2>Design Your Own Algorithm</h2>
+                <p>Now it's your turn to write an algorithm from scratch. This is where you put everything together.</p>
 
-                <div class="comparison-row">
-                    <div class="comparison-box">
-                        <h4>Denary</h4>
-                        <div class="big-number">10</div>
-                        <p>digits (0-9)</p>
-                        <p style="color: var(--text-muted); font-size: 0.85rem;">Powers of 10</p>
-                    </div>
-                    <div class="comparison-box">
-                        <h4>Binary</h4>
-                        <div class="big-number">2</div>
-                        <p>digits (0-1)</p>
-                        <p style="color: var(--text-muted); font-size: 0.85rem;">Powers of 2</p>
-                    </div>
-                </div>
-
-                <div class="insight">
-                    <p>💡 <strong>The same pattern applies!</strong> In Base 10, place values are powers of 10. In Base 2, place values are powers of <span class="highlight-cyan">2</span>.</p>
+                <div class="think-box">
+                    <div class="think-box-header">🤔 Before You Start — Planning</div>
+                    <p>Good algorithm writers don't just start typing. They plan first:</p>
+                    <ul>
+                        <li>What is the <strong>goal</strong>? (What should be achieved at the end?)</li>
+                        <li>What is the <strong>starting point</strong>? (What do we assume is already done?)</li>
+                        <li>What are the <strong>main steps</strong>? (Break it into chunks first, then add detail)</li>
+                    </ul>
                 </div>
             </div>
 
             <div class="card">
-                <h3>Calculate Binary Place Values</h3>
-                <p>Using the same logic as denary, fill in the binary place values:</p>
-                
-                <div class="key-term">
-                    <div class="key-term-header">
-                        <span class="key-term-badge">How Powers Work</span>
-                        <span class="key-term-word">Same principle, but multiply by 2 instead of 10</span>
+                <h3>Choose Your Task</h3>
+                <p>Select a task from the dropdown, then write out the steps:</p>
+
+                <select class="task-dropdown" id="task-select" onchange="updateTaskPrompt()">
+                    <option value="">-- Choose a task --</option>
+                    <option value="toast">Making toast</option>
+                    <option value="teeth">Brushing your teeth</option>
+                    <option value="login">Logging into a game</option>
+                </select>
+
+                <div id="task-prompt" style="display: none;">
+                    <h3 id="task-title">Write your algorithm:</h3>
+
+                    <div class="connect-box">
+                        <div class="connect-box-header">🔗 Remember</div>
+                        <p>Your steps should be precise and unambiguous. Imagine a robot is going to follow these instructions exactly!</p>
                     </div>
-                    <p>2<sup>3</sup> means 2 × 2 × 2 = 8</p>
-                    <p style="margin-top: 4px;">2<sup>4</sup> means 2 × 2 × 2 × 2 = 16</p>
-                    <p style="margin-top: 4px;">2<sup>1</sup> means just 2</p>
-                    <p style="margin-top: 4px;">2<sup>0</sup> = 1 (any number to the power of 0 equals 1)</p>
+
+                    <div class="step-inputs" id="step-inputs">
+                        <div class="step-row">
+                            <span class="step-number">Step 1:</span>
+                            <input type="text" class="input-field" placeholder="Enter your first step...">
+                        </div>
+                        <div class="step-row">
+                            <span class="step-number">Step 2:</span>
+                            <input type="text" class="input-field" placeholder="Enter your second step...">
+                        </div>
+                        <div class="step-row">
+                            <span class="step-number">Step 3:</span>
+                            <input type="text" class="input-field" placeholder="Enter your third step...">
+                        </div>
+                        <div class="step-row">
+                            <span class="step-number">Step 4:</span>
+                            <input type="text" class="input-field" placeholder="Enter your fourth step...">
+                        </div>
+                        <div class="step-row">
+                            <span class="step-number">Step 5:</span>
+                            <input type="text" class="input-field" placeholder="Enter your fifth step (if needed)...">
+                        </div>
+                        <div class="step-row">
+                            <span class="step-number">Step 6:</span>
+                            <input type="text" class="input-field" placeholder="Enter your sixth step (if needed)...">
+                        </div>
+                    </div>
+
+                    <div class="example-toggle">
+                        <button class="secondary-btn" onclick="toggleExample()">💡 Need help? Show me a different example</button>
+                        <div class="toggle-content" id="example-content">
+                            <div class="example-box">
+                                <div class="example-box-header">
+                                    <span class="example-badge">Example</span>
+                                    <span class="example-title">Making a Phone Call</span>
+                                </div>
+                                <ol>
+                                    <li>Pick up the phone</li>
+                                    <li>Unlock the phone using the passcode</li>
+                                    <li>Open the Phone app</li>
+                                    <li>Type in the phone number OR select a contact</li>
+                                    <li>Press the green call button</li>
+                                    <li>Wait for the person to answer</li>
+                                    <li>Speak to the person</li>
+                                    <li>Press the red button to end the call</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="assess-btn" onclick="generateAlgorithmOutput()">✓ I'm Done — Self-Assess My Algorithm</button>
                 </div>
-                
-                <div class="interactive-table">
-                    <table>
-                        <tr>
-                            <th>Power of 2</th>
-                            <th>2<sup>7</sup></th>
-                            <th>2<sup>6</sup></th>
-                            <th>2<sup>5</sup></th>
-                            <th>2<sup>4</sup></th>
-                            <th>2<sup>3</sup></th>
-                            <th>2<sup>2</sup></th>
-                            <th>2<sup>1</sup></th>
-                            <th>2<sup>0</sup></th>
-                        </tr>
-                        <tr>
-                            <td style="color: var(--text-secondary); font-family: 'Outfit', sans-serif;">Place Value</td>
-                            <td><input type="number" class="input-field" id="pv-2-7" placeholder="?"></td>
-                            <td><input type="number" class="input-field" id="pv-2-6" placeholder="?"></td>
-                            <td><input type="number" class="input-field" id="pv-2-5" placeholder="?"></td>
-                            <td><input type="number" class="input-field" id="pv-2-4" placeholder="?"></td>
-                            <td><input type="number" class="input-field" id="pv-2-3" placeholder="?"></td>
-                            <td><input type="number" class="input-field" id="pv-2-2" placeholder="?"></td>
-                            <td><input type="number" class="input-field" id="pv-2-1" placeholder="?"></td>
-                            <td><input type="number" class="input-field" id="pv-2-0" placeholder="?"></td>
-                        </tr>
-                    </table>
-                </div>
-                <div style="text-align: center; margin-top: 12px;">
-                    <button class="check-btn" onclick="checkBinaryPlaceValues()">Check Answers</button>
-                </div>
-                <div id="binary-pv-feedback" class="feedback"></div>
             </div>
 
-            <div class="notes-summary" id="notes-5" style="display: none;">
+            <div class="algorithm-output" id="algorithm-output">
+                <div class="algorithm-output-header">📋 Your Algorithm</div>
+                <ol id="algorithm-output-list">
+                    <!-- Steps will be inserted here -->
+                </ol>
+            </div>
+
+            <div class="card" id="self-check-card" style="display: none;">
+                <h3>Self-Assessment Checklist</h3>
+                <p>Read through your algorithm above. For each statement below, tick the box if your algorithm meets that criteria:</p>
+
+                <div class="self-check">
+                    <div class="check-item">
+                        <input type="checkbox" id="check-1" onchange="checkSelfAssessment()">
+                        <label for="check-1">My steps are in a sensible order (each step can be done after the previous one)</label>
+                    </div>
+                    <div class="check-item">
+                        <input type="checkbox" id="check-2" onchange="checkSelfAssessment()">
+                        <label for="check-2">Someone else could follow this without asking me any questions</label>
+                    </div>
+                    <div class="check-item">
+                        <input type="checkbox" id="check-3" onchange="checkSelfAssessment()">
+                        <label for="check-3">I haven't missed any important steps</label>
+                    </div>
+                    <div class="check-item">
+                        <input type="checkbox" id="check-4" onchange="checkSelfAssessment()">
+                        <label for="check-4">Each step is clear and specific (not vague like "do the thing")</label>
+                    </div>
+                </div>
+
+                <div class="think-box" style="margin-top: 16px;">
+                    <div class="think-box-header">🤔 Reflection</div>
+                    <p>If you couldn't tick all the boxes, that's okay! Go back and improve your algorithm. Good programmers always review and refine their work.</p>
+                </div>
+            </div>
+
+            <div class="copy-prompt" id="copy-prompt">
+                <p>📓 <strong>Write your completed algorithm in your exercise book</strong> along with your notes from this lesson.</p>
+            </div>
+
+            <div class="notes-summary" id="notes-5">
                 <div class="notes-summary-header">
                     <span class="notes-icon">📝</span>
                     <h4>Notes for This Section</h4>
                 </div>
                 <ul>
-                    <li><strong>Binary</strong> is a Base 2 number system using digits 0 and 1</li>
-                    <li>Binary place values are <strong>powers of 2</strong></li>
-                    <li>Place values (right to left): <code>1, 2, 4, 8, 16, 32, 64, 128</code></li>
-                    <li>Each place value is <strong>2× the previous one</strong> (just like denary is 10× the previous)</li>
+                    <li>When writing algorithms, break the task into <strong>small, clear steps</strong></li>
+                    <li>Always plan first: What's the goal? What's the starting point? What are the main steps?</li>
+                    <li>Check: Are the steps in the <strong>right order</strong>?</li>
+                    <li>Check: Could someone follow this <strong>without asking questions</strong>?</li>
+                    <li>Check: Have you <strong>missed any steps</strong>?</li>
+                    <li>Good programmers <strong>review and refine</strong> their algorithms</li>
                 </ul>
             </div>
 
             <div class="nav-buttons">
                 <button class="nav-btn secondary" onclick="prevSection()">← Back</button>
-                <button class="nav-btn primary" onclick="nextSection()" id="next-5" disabled>Continue →</button>
+                <button class="nav-btn primary" onclick="nextSection()">Continue to Quiz →</button>
             </div>
         </section>
 
-        <!-- Section 6: How Binary Works -->
+        <!-- Section 6: Checkpoint Quiz -->
         <section id="section-6">
             <div class="learning-objective">
-                <div class="learning-objective-label">Learning Objective</div>
-                <p>Understand how binary digits turn place values "on" or "off" and convert binary to denary.</p>
+                <div class="learning-objective-label">Checkpoint Quiz</div>
+                <p>Test your understanding of algorithms with these questions.</p>
             </div>
 
             <div class="card">
-                <h2>The Critical Difference</h2>
-                <p>In denary, each position can hold any digit from <span class="highlight">0 to 9</span>.</p>
-                <p>In binary, each position can only hold <span class="highlight-cyan">0 or 1</span>.</p>
-
-                <div class="key-term">
-                    <div class="key-term-header">
-                        <span class="key-term-badge">Key Term</span>
-                        <span class="key-term-word">Bit</span>
-                    </div>
-                    <p>A single binary digit — either 0 or 1. Short for "binary digit". The smallest unit of data in computing.</p>
-                </div>
-
-                <div class="insight">
-                    <p>💡 Think of each bit like a <strong>switch</strong>: if it's <span class="highlight-green">1</span>, the place value is ON — you count it. If it's <span class="highlight-magenta">0</span>, the place value is OFF — you don't count it.</p>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3>Converting Binary to Denary</h3>
-                <p>To convert a binary number to denary, simply <span class="highlight">add up all the place values where there's a 1</span>.</p>
+                <h2>🎯 Final Checkpoint</h2>
+                <p>Let's see how much you've learned! Answer these questions to check your understanding.</p>
                 
-                <p style="margin-top: 16px;"><strong>Example:</strong> What is <span style="font-family: 'JetBrains Mono', monospace; color: var(--accent-cyan);">1101</span> in denary?</p>
-
-                <table class="place-value-table" style="margin: 16px 0;">
-                    <tr>
-                        <th>Place Value</th>
-                        <td class="value-cell">8</td>
-                        <td class="value-cell">4</td>
-                        <td class="value-cell">2</td>
-                        <td class="value-cell">1</td>
-                    </tr>
-                    <tr>
-                        <th>Binary Digit</th>
-                        <td style="color: var(--accent-green); font-family: 'JetBrains Mono', monospace; font-size: 1.3rem;">1</td>
-                        <td style="color: var(--accent-green); font-family: 'JetBrains Mono', monospace; font-size: 1.3rem;">1</td>
-                        <td style="color: var(--text-muted); font-family: 'JetBrains Mono', monospace; font-size: 1.3rem;">0</td>
-                        <td style="color: var(--accent-green); font-family: 'JetBrains Mono', monospace; font-size: 1.3rem;">1</td>
-                    </tr>
-                    <tr>
-                        <th>Status</th>
-                        <td class="label-cell" style="color: var(--accent-green);">ON</td>
-                        <td class="label-cell" style="color: var(--accent-green);">ON</td>
-                        <td class="label-cell" style="color: var(--text-muted);">OFF</td>
-                        <td class="label-cell" style="color: var(--accent-green);">ON</td>
-                    </tr>
-                </table>
-
-                <p style="text-align: center; font-family: 'JetBrains Mono', monospace; color: var(--text-primary);">
-                    <span style="color: var(--accent-green);">8</span> + <span style="color: var(--accent-green);">4</span> + <span style="color: var(--accent-green);">1</span> = <span style="color: var(--accent-yellow); font-size: 1.3rem; font-weight: 600;">13</span>
-                </p>
+                <div class="think-box">
+                    <div class="think-box-header">🤔 Take Your Time</div>
+                    <p>Read each question carefully. Think about what you learned in the earlier sections before choosing your answer.</p>
+                </div>
             </div>
 
             <div class="card">
-                <h3>Your Turn</h3>
                 <div class="question-box">
-                    <p>Convert <span style="font-family: 'JetBrains Mono', monospace; color: var(--accent-cyan); font-size: 1.2rem;">1010</span> to denary:</p>
-                    <table class="place-value-table" style="margin: 12px 0;">
-                        <tr>
-                            <th>Place Value</th>
-                            <td class="value-cell">8</td>
-                            <td class="value-cell">4</td>
-                            <td class="value-cell">2</td>
-                            <td class="value-cell">1</td>
-                        </tr>
-                        <tr>
-                            <th>Binary Digit</th>
-                            <td style="color: var(--accent-green); font-family: 'JetBrains Mono', monospace; font-size: 1.3rem;">1</td>
-                            <td style="color: var(--text-muted); font-family: 'JetBrains Mono', monospace; font-size: 1.3rem;">0</td>
-                            <td style="color: var(--accent-green); font-family: 'JetBrains Mono', monospace; font-size: 1.3rem;">1</td>
-                            <td style="color: var(--text-muted); font-family: 'JetBrains Mono', monospace; font-size: 1.3rem;">0</td>
-                        </tr>
-                    </table>
-                    <div class="input-row">
-                        <span style="font-family: 'JetBrains Mono', monospace; color: var(--accent-cyan);">1010</span>
-                        <span style="color: var(--text-secondary);">=</span>
-                        <input type="number" class="input-field" id="convert-1010" placeholder="?">
-                        <span style="color: var(--text-secondary);">in denary</span>
-                        <button class="check-btn" onclick="checkConversion1010()">Check</button>
+                    <p><strong>Question 1:</strong> What is an algorithm?</p>
+                    <div class="options" id="final-q1">
+                        <button class="option-btn" onclick="checkFinalQuiz(1, 'A')">A) A type of computer</button>
+                        <button class="option-btn" onclick="checkFinalQuiz(1, 'B')">B) A set of step-by-step instructions to complete a task</button>
+                        <button class="option-btn" onclick="checkFinalQuiz(1, 'C')">C) A programming language</button>
+                        <button class="option-btn" onclick="checkFinalQuiz(1, 'D')">D) A mathematical equation</button>
                     </div>
-                    <div id="convert-1010-feedback" class="feedback"></div>
+                    <div id="final-feedback-1" class="feedback"></div>
                 </div>
             </div>
 
-            <div class="notes-summary" id="notes-6" style="display: none;">
-                <div class="notes-summary-header">
-                    <span class="notes-icon">📝</span>
-                    <h4>Notes for This Section</h4>
+            <div class="card">
+                <div class="question-box">
+                    <p><strong>Question 2:</strong> Which instruction is MORE precise?</p>
+                    <div class="options" id="final-q2">
+                        <button class="option-btn" onclick="checkFinalQuiz(2, 'A')">A) "Add some water to the pot"</button>
+                        <button class="option-btn" onclick="checkFinalQuiz(2, 'B')">B) "Add 500ml of water to the pot"</button>
+                    </div>
+                    <div id="final-feedback-2" class="feedback"></div>
                 </div>
-                <ul>
-                    <li><strong>Bit</strong> = a single binary digit (0 or 1), short for "binary digit"</li>
-                    <li>In binary, <code>1</code> means the place value is <strong>ON</strong>, <code>0</code> means it's <strong>OFF</strong></li>
-                    <li><strong>To convert binary → denary:</strong> Add up all place values where there's a 1</li>
-                    <li>Example: <code>1101</code> = 8 + 4 + 1 = <strong>13</strong></li>
-                </ul>
+            </div>
+
+            <div class="card">
+                <div class="question-box">
+                    <p><strong>Question 3:</strong> Look at this algorithm for making a sandwich. What's wrong with it?</p>
+                    <div style="background: var(--bg-dark); padding: 16px; border-radius: 8px; margin: 12px 0; font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; color: var(--text-primary);">
+                        1. Put filling on the bread<br>
+                        2. Get two slices of bread<br>
+                        3. Put the second slice on top<br>
+                        4. Cut the sandwich in half
+                    </div>
+                    <div class="options" id="final-q3">
+                        <button class="option-btn" onclick="checkFinalQuiz(3, 'A')">A) There's a missing step</button>
+                        <button class="option-btn" onclick="checkFinalQuiz(3, 'B')">B) Steps are in the wrong order</button>
+                        <button class="option-btn" onclick="checkFinalQuiz(3, 'C')">C) It has too many steps</button>
+                        <button class="option-btn" onclick="checkFinalQuiz(3, 'D')">D) Nothing is wrong with it</button>
+                    </div>
+                    <div id="final-feedback-3" class="feedback"></div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="question-box">
+                    <p><strong>Question 4:</strong> "REPEAT stirring UNTIL the sauce is smooth" — which building block is this?</p>
+                    <div class="options" id="final-q4">
+                        <button class="option-btn" onclick="checkFinalQuiz(4, 'A')">A) Sequence</button>
+                        <button class="option-btn" onclick="checkFinalQuiz(4, 'B')">B) Selection</button>
+                        <button class="option-btn" onclick="checkFinalQuiz(4, 'C')">C) Iteration</button>
+                    </div>
+                    <div id="final-feedback-4" class="feedback"></div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="question-box">
+                    <p><strong>Question 5:</strong> Why do computers need precise algorithms?</p>
+                    <div class="options" id="final-q5">
+                        <button class="option-btn" onclick="checkFinalQuiz(5, 'A')">A) Because computers are slow</button>
+                        <button class="option-btn" onclick="checkFinalQuiz(5, 'B')">B) Because computers follow instructions exactly and can't guess what you meant</button>
+                        <button class="option-btn" onclick="checkFinalQuiz(5, 'C')">C) Because precise algorithms use less electricity</button>
+                        <button class="option-btn" onclick="checkFinalQuiz(5, 'D')">D) Because programmers like being precise</button>
+                    </div>
+                    <div id="final-feedback-5" class="feedback"></div>
+                </div>
+            </div>
+
+            <div class="card" id="score-card" style="display: none;">
+                <div class="score-display">
+                    <div class="score-value" id="final-score">0/5</div>
+                    <div class="score-label">Questions Correct</div>
+                </div>
+                <div id="score-message" class="feedback info show" style="text-align: center;"></div>
             </div>
 
             <div class="nav-buttons">
                 <button class="nav-btn secondary" onclick="prevSection()">← Back</button>
-                <button class="nav-btn primary" onclick="nextSection()" id="next-6" disabled>Continue →</button>
+                <button class="nav-btn primary" onclick="nextSection()" id="next-6" disabled>See Summary →</button>
             </div>
         </section>
 
-        <!-- Section 7: Interactive Practice -->
+        <!-- Section 7: Summary -->
         <section id="section-7">
-            <div class="learning-objective">
-                <div class="learning-objective-label">Learning Objective</div>
-                <p>Practice converting between binary and denary using an interactive converter.</p>
-            </div>
-
-            <div class="card">
-                <h2>Interactive Binary Converter</h2>
-                <p><span class="highlight-cyan">Click the bits</span> to toggle them ON (1) or OFF (0). Watch how the denary value changes.</p>
-
-                <div class="binary-converter">
-                    <div class="bit-row">
-                        <div class="bit-column">
-                            <span class="place-label">2<sup>7</sup></span>
-                            <span class="place-value">128</span>
-                            <div class="bit-switch off" data-value="128" onclick="toggleBit(this)">0</div>
-                            <span class="bit-status">off</span>
-                        </div>
-                        <div class="bit-column">
-                            <span class="place-label">2<sup>6</sup></span>
-                            <span class="place-value">64</span>
-                            <div class="bit-switch off" data-value="64" onclick="toggleBit(this)">0</div>
-                            <span class="bit-status">off</span>
-                        </div>
-                        <div class="bit-column">
-                            <span class="place-label">2<sup>5</sup></span>
-                            <span class="place-value">32</span>
-                            <div class="bit-switch off" data-value="32" onclick="toggleBit(this)">0</div>
-                            <span class="bit-status">off</span>
-                        </div>
-                        <div class="bit-column">
-                            <span class="place-label">2<sup>4</sup></span>
-                            <span class="place-value">16</span>
-                            <div class="bit-switch off" data-value="16" onclick="toggleBit(this)">0</div>
-                            <span class="bit-status">off</span>
-                        </div>
-                        <div class="bit-column">
-                            <span class="place-label">2<sup>3</sup></span>
-                            <span class="place-value">8</span>
-                            <div class="bit-switch off" data-value="8" onclick="toggleBit(this)">0</div>
-                            <span class="bit-status">off</span>
-                        </div>
-                        <div class="bit-column">
-                            <span class="place-label">2<sup>2</sup></span>
-                            <span class="place-value">4</span>
-                            <div class="bit-switch off" data-value="4" onclick="toggleBit(this)">0</div>
-                            <span class="bit-status">off</span>
-                        </div>
-                        <div class="bit-column">
-                            <span class="place-label">2<sup>1</sup></span>
-                            <span class="place-value">2</span>
-                            <div class="bit-switch off" data-value="2" onclick="toggleBit(this)">0</div>
-                            <span class="bit-status">off</span>
-                        </div>
-                        <div class="bit-column">
-                            <span class="place-label">2<sup>0</sup></span>
-                            <span class="place-value">1</span>
-                            <div class="bit-switch off" data-value="1" onclick="toggleBit(this)">0</div>
-                            <span class="bit-status">off</span>
-                        </div>
-                    </div>
-
-                    <div class="result-display">
-                        <div class="result-label">Denary Value</div>
-                        <div class="result-value" id="denary-result">0</div>
-                        <div class="calculation" id="calculation">Toggle bits above to build a number</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3>🎯 Challenge</h3>
-                <p>Can you make these numbers using the converter above?</p>
-                <ul style="color: var(--text-secondary); padding-left: 20px; margin-top: 12px;">
-                    <li style="margin-bottom: 8px;"><strong style="color: var(--accent-yellow);">42</strong> — Hint: Which place values add to 42?</li>
-                    <li style="margin-bottom: 8px;"><strong style="color: var(--accent-yellow);">100</strong> — Think: 64 + ?</li>
-                    <li style="margin-bottom: 8px;"><strong style="color: var(--accent-yellow);">255</strong> — What happens when ALL bits are on?</li>
-                </ul>
-            </div>
-
-            <div class="notes-summary">
-                <div class="notes-summary-header">
-                    <span class="notes-icon">📝</span>
-                    <h4>Notes for This Section</h4>
-                </div>
-                <ul>
-                    <li>8 bits together can represent values from <strong>0 to 255</strong></li>
-                    <li>8 bits = 1 <strong>byte</strong></li>
-                    <li><strong>To convert denary → binary:</strong> Find which place values add up to your target number</li>
-                    <li>Start with the largest place value that fits, then work down</li>
-                </ul>
-            </div>
-
-            <div class="nav-buttons">
-                <button class="nav-btn secondary" onclick="prevSection()">← Back</button>
-                <button class="nav-btn primary" onclick="nextSection()">Final Summary →</button>
-            </div>
-        </section>
-
-        <!-- Section 8: Summary -->
-        <section id="section-8">
-            <div class="card" style="background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(255, 0, 110, 0.08));">
+            <div class="card" style="background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(168, 85, 247, 0.08));">
                 <h2>🎉 Well Done!</h2>
-                <p>You now understand the <em>why</em> behind binary — not just the <em>what</em>.</p>
-                <p>The key insight is that <span class="highlight">the base of a number system determines its place values</span>. This same pattern works for any base!</p>
+                <p>You've completed this lesson on algorithms. You now understand what algorithms are, why precision matters, and the three building blocks that make up all algorithms.</p>
             </div>
 
             <div class="card">
                 <h2>📝 Complete Summary</h2>
-                <p style="color: var(--text-muted); margin-bottom: 20px;">Copy these notes for your revision:</p>
+                <p style="color: var(--text-muted); margin-bottom: 20px;">Copy these notes into your exercise book:</p>
 
                 <h3 style="color: var(--accent-cyan); margin-top: 0;">Key Terms</h3>
                 <ul style="color: var(--text-secondary); padding-left: 20px; margin-bottom: 20px;">
-                    <li style="margin-bottom: 10px;"><strong style="color: var(--accent-yellow);">Denary (Decimal)</strong> — The number system humans use daily. Base 10, using digits 0-9.</li>
-                    <li style="margin-bottom: 10px;"><strong style="color: var(--accent-yellow);">Base</strong> — The number of different digits a number system uses.</li>
-                    <li style="margin-bottom: 10px;"><strong style="color: var(--accent-yellow);">Binary</strong> — The number system computers use. Base 2, using digits 0 and 1.</li>
-                    <li style="margin-bottom: 10px;"><strong style="color: var(--accent-yellow);">Transistor</strong> — A microscopic switch inside a computer. Can only be ON or OFF.</li>
-                    <li style="margin-bottom: 10px;"><strong style="color: var(--accent-yellow);">Bit</strong> — A single binary digit (0 or 1). Short for "binary digit".</li>
-                    <li><strong style="color: var(--accent-yellow);">Byte</strong> — A group of 8 bits. Can represent values 0-255.</li>
+                    <li style="margin-bottom: 10px;"><strong style="color: var(--accent-yellow);">Algorithm</strong> — A set of step-by-step instructions designed to complete a task or solve a problem.</li>
+                    <li style="margin-bottom: 10px;"><strong style="color: var(--accent-yellow);">Ambiguous</strong> — Having more than one possible meaning. Algorithms should NOT be ambiguous.</li>
+                    <li style="margin-bottom: 10px;"><strong style="color: var(--accent-yellow);">Sequence</strong> — Steps that happen one after another, in order.</li>
+                    <li style="margin-bottom: 10px;"><strong style="color: var(--accent-yellow);">Selection</strong> — Making a choice based on a condition (IF... THEN...).</li>
+                    <li><strong style="color: var(--accent-yellow);">Iteration</strong> — Repeating steps until something happens. Also called a loop.</li>
                 </ul>
 
-                <h3 style="color: var(--accent-cyan);">Key Concepts</h3>
+                <h3 style="color: var(--accent-cyan);">Key Points</h3>
                 <ul style="color: var(--text-secondary); padding-left: 20px; margin-bottom: 20px;">
-                    <li style="margin-bottom: 10px;">The <strong>base</strong> determines the place values (powers of the base)</li>
-                    <li style="margin-bottom: 10px;">Denary place values: 1, 10, 100, 1000... (powers of 10)</li>
-                    <li style="margin-bottom: 10px;">Binary place values: 1, 2, 4, 8, 16, 32, 64, 128... (powers of 2)</li>
-                    <li style="margin-bottom: 10px;">In binary, <strong>1 = ON</strong> (count the place value), <strong>0 = OFF</strong> (don't count it)</li>
-                    <li>Computers use binary because transistors can only be in two states</li>
+                    <li style="margin-bottom: 10px;">Algorithms have a <strong>clear goal</strong> and <strong>ordered steps</strong></li>
+                    <li style="margin-bottom: 10px;">The <strong>order of steps matters</strong> — wrong order can break the algorithm</li>
+                    <li style="margin-bottom: 10px;">Computers follow instructions <strong>exactly</strong> — they can't guess what you meant</li>
+                    <li style="margin-bottom: 10px;">Good algorithms are <strong>precise</strong> and <strong>unambiguous</strong></li>
+                    <li>All algorithms use <strong>sequence</strong>, <strong>selection</strong>, and/or <strong>iteration</strong></li>
                 </ul>
 
-                <h3 style="color: var(--accent-cyan);">Conversion Methods</h3>
+                <h3 style="color: var(--accent-cyan);">Examples of Everyday Algorithms</h3>
                 <ul style="color: var(--text-secondary); padding-left: 20px;">
-                    <li style="margin-bottom: 10px;"><strong>Binary → Denary:</strong> Add up all place values where there's a 1</li>
-                    <li><strong>Denary → Binary:</strong> Find which powers of 2 add up to the target number (start with the largest that fits)</li>
+                    <li style="margin-bottom: 8px;">Recipes (making tea, baking a cake)</li>
+                    <li style="margin-bottom: 8px;">Directions to a location</li>
+                    <li style="margin-bottom: 8px;">Assembly instructions (building furniture)</li>
+                    <li>Morning routines (getting ready for school)</li>
                 </ul>
             </div>
 
             <div class="card">
-                <h3>Place Value Reference</h3>
-                <table class="place-value-table">
-                    <tr>
-                        <th>Power</th>
-                        <td class="power-cell">2<sup>7</sup></td>
-                        <td class="power-cell">2<sup>6</sup></td>
-                        <td class="power-cell">2<sup>5</sup></td>
-                        <td class="power-cell">2<sup>4</sup></td>
-                        <td class="power-cell">2<sup>3</sup></td>
-                        <td class="power-cell">2<sup>2</sup></td>
-                        <td class="power-cell">2<sup>1</sup></td>
-                        <td class="power-cell">2<sup>0</sup></td>
-                    </tr>
-                    <tr>
-                        <th>Value</th>
-                        <td class="value-cell">128</td>
-                        <td class="value-cell">64</td>
-                        <td class="value-cell">32</td>
-                        <td class="value-cell">16</td>
-                        <td class="value-cell">8</td>
-                        <td class="value-cell">4</td>
-                        <td class="value-cell">2</td>
-                        <td class="value-cell">1</td>
-                    </tr>
-                </table>
+                <h3>🚀 What's Next?</h3>
+                <p>Now you understand what algorithms are and how to write them, the next step is learning the different ways we can <span class="highlight-cyan">represent</span> algorithms.</p>
+                <p style="margin-top: 12px;">In the next lesson, we'll look at:</p>
+                <ul style="color: var(--text-secondary); padding-left: 20px; margin-top: 10px;">
+                    <li style="margin-bottom: 8px;"><strong>Written descriptions</strong> — like the algorithms you wrote today</li>
+                    <li style="margin-bottom: 8px;"><strong>Flowcharts</strong> — visual diagrams showing the flow of an algorithm</li>
+                    <li><strong>Pseudocode</strong> — a way of writing algorithms that's closer to programming code</li>
+                </ul>
+
+                <div class="think-box" style="margin-top: 20px;">
+                    <div class="think-box-header">🤔 Challenge Before Next Lesson</div>
+                    <p>Think of another everyday algorithm you use (maybe your morning routine, or how you play a game). Can you spot any examples of <strong>selection</strong> (making choices) or <strong>iteration</strong> (repeating steps)?</p>
+                </div>
             </div>
 
             <div class="nav-buttons">
@@ -1524,7 +1864,12 @@
 
     <script>
         let currentSection = 0;
-        const totalSections = 9;
+        const totalSections = 8;
+
+        // Quiz tracking
+        let conceptQuizAnswers = { 1: false, 2: false, 3: false };
+        let finalQuizAnswers = { 1: false, 2: false, 3: false, 4: false, 5: false };
+        let finalQuizScore = 0;
 
         // Navigation
         function nextSection() {
@@ -1563,231 +1908,327 @@
             });
         });
 
-        // Section 1: Denary digit count
-        function checkDenaryCount() {
-            const input = document.getElementById('denary-count-input');
-            const feedback = document.getElementById('denary-count-feedback');
-            const answer = parseInt(input.value);
+        // Section 1: Algorithm definition quiz
+        function checkAlgoQuiz1(answer) {
+            const buttons = document.querySelectorAll('#algo-quiz-1 .option-btn');
+            const feedback = document.getElementById('algo-quiz-1-feedback');
+            
+            buttons.forEach(btn => {
+                btn.disabled = true;
+                if (btn.textContent.startsWith('B)')) {
+                    btn.classList.add('correct');
+                } else if (btn.textContent.startsWith(answer + ')') && answer !== 'B') {
+                    btn.classList.add('incorrect');
+                }
+            });
 
-            if (answer === 10) {
-                input.classList.remove('incorrect');
-                input.classList.add('correct');
-                feedback.textContent = "✓ Correct! Denary uses 10 digits: 0, 1, 2, 3, 4, 5, 6, 7, 8, and 9.";
+            if (answer === 'B') {
+                feedback.textContent = "✓ Correct! Option B has clear, numbered steps with specific details — that's what makes it an algorithm. The other options are either vague, not instructions at all, or assume prior knowledge.";
                 feedback.className = 'feedback success show';
-                document.querySelectorAll('#denary-digits .digit-box').forEach(box => box.classList.add('correct'));
-                document.getElementById('next-1').disabled = false;
-                document.getElementById('notes-1').style.display = 'block';
-            } else if (answer === 9) {
-                input.classList.add('incorrect');
-                feedback.textContent = "Almost! Remember, we count from 0, not 1. Count again including zero.";
-                feedback.className = 'feedback error show';
             } else {
-                input.classList.add('incorrect');
-                feedback.textContent = "Not quite. Count each digit box above carefully.";
+                feedback.textContent = "Not quite. An algorithm needs specific, ordered steps. Option A is too vague, C is just a statement, and D assumes you already know what to do. Option B is the only one with clear step-by-step instructions.";
                 feedback.className = 'feedback error show';
             }
+            
+            document.getElementById('next-1').disabled = false;
+            document.getElementById('notes-1').style.display = 'block';
         }
 
-        // Section 2: Base understanding
-        function checkBaseUnderstanding() {
-            const input = document.getElementById('base-check-input');
-            const feedback = document.getElementById('base-check-feedback');
-            const answer = parseInt(input.value);
+        // Section 2: Ordering activity
+        function moveItem(button, direction) {
+            const item = button.closest('.order-item');
+            const list = item.parentElement;
+            const items = Array.from(list.children);
+            const index = items.indexOf(item);
+            
+            if (direction === -1 && index > 0) {
+                list.insertBefore(item, items[index - 1]);
+            } else if (direction === 1 && index < items.length - 1) {
+                list.insertBefore(items[index + 1], item);
+            }
+            
+            updateOrderNumbers();
+            clearOrderFeedback();
+        }
 
-            if (answer === 8) {
-                input.classList.remove('incorrect');
-                input.classList.add('correct');
-                feedback.textContent = "✓ Correct! 8 digits means Base 8 (this is called octal, by the way).";
+        function updateOrderNumbers() {
+            const items = document.querySelectorAll('#cereal-order .order-item');
+            items.forEach((item, index) => {
+                item.querySelector('.order-number').textContent = (index + 1) + '.';
+                item.classList.remove('correct-position', 'wrong-position');
+            });
+        }
+
+        function clearOrderFeedback() {
+            document.getElementById('cereal-feedback').className = 'feedback';
+        }
+
+        function checkCerealOrder() {
+            const items = document.querySelectorAll('#cereal-order .order-item');
+            const feedback = document.getElementById('cereal-feedback');
+            let allCorrect = true;
+            let wrongSteps = [];
+            
+            items.forEach((item, index) => {
+                const correctPosition = parseInt(item.dataset.correct);
+                const currentPosition = index + 1;
+                
+                if (correctPosition === currentPosition) {
+                    item.classList.add('correct-position');
+                    item.classList.remove('wrong-position');
+                } else {
+                    item.classList.add('wrong-position');
+                    item.classList.remove('correct-position');
+                    allCorrect = false;
+                    wrongSteps.push(currentPosition);
+                }
+            });
+
+            if (allCorrect) {
+                feedback.textContent = "✓ All correct! The right order is: Get bowl → Pour cereal → Pour milk → Eat. Each step depends on the one before it — you can't pour cereal into a bowl you haven't got yet!";
                 feedback.className = 'feedback success show';
                 document.getElementById('next-2').disabled = false;
                 document.getElementById('notes-2').style.display = 'block';
             } else {
-                input.classList.add('incorrect');
-                feedback.textContent = "Think about the pattern: 10 digits = Base 10. So 8 digits = Base...?";
+                feedback.textContent = `Check step${wrongSteps.length > 1 ? 's' : ''} ${wrongSteps.join(' and ')}. Think about what needs to happen first — which step can't be done until another step is complete?`;
                 feedback.className = 'feedback hint show';
             }
         }
 
-        // Section 3: Denary place values
-        function checkDenaryPlaceValues() {
-            const answers = {
-                'pv-10-0': 1,
-                'pv-10-1': 10,
-                'pv-10-2': 100,
-                'pv-10-3': 1000
-            };
+        // Section 3: Robot scenarios
+        function showRobotResponse(num) {
+            const response = document.getElementById(`robot-response-${num}`);
+            const card = response.previousElementSibling;
             
-            let allCorrect = true;
-            let firstWrong = null;
-
-            for (const [id, expected] of Object.entries(answers)) {
-                const input = document.getElementById(id);
-                const value = parseInt(input.value);
-                
-                if (value === expected) {
-                    input.classList.remove('incorrect');
-                    input.classList.add('correct');
-                } else {
-                    input.classList.remove('correct');
-                    input.classList.add('incorrect');
-                    allCorrect = false;
-                    if (!firstWrong) firstWrong = id;
-                }
-            }
-
-            const feedback = document.getElementById('denary-pv-feedback');
-            
-            if (allCorrect) {
-                feedback.textContent = "✓ Excellent! You've calculated all the powers of 10 correctly.";
-                feedback.className = 'feedback success show';
-                document.getElementById('next-3').disabled = false;
-                document.getElementById('notes-3').style.display = 'block';
+            if (response.classList.contains('show')) {
+                response.classList.remove('show');
+                card.classList.remove('selected');
             } else {
-                const power = firstWrong.split('-')[2];
-                feedback.textContent = `Check 10^${power}. Remember: 10^0=1, and each power multiplies by 10.`;
-                feedback.className = 'feedback hint show';
+                response.classList.add('show');
+                card.classList.add('selected');
             }
         }
 
-        // Section 4: Binary base
-        function checkBinaryBase() {
-            const input = document.getElementById('binary-base-input');
-            const feedback = document.getElementById('binary-base-feedback');
-            const answer = parseInt(input.value);
+        function checkPrecisionQuiz(answer) {
+            const buttons = document.querySelectorAll('#precision-quiz .option-btn');
+            const feedback = document.getElementById('precision-feedback');
+            
+            buttons.forEach(btn => {
+                btn.disabled = true;
+                if (btn.textContent.startsWith('B)')) {
+                    btn.classList.add('correct');
+                } else if (btn.textContent.startsWith(answer + ')') && answer !== 'B') {
+                    btn.classList.add('incorrect');
+                }
+            });
 
-            if (answer === 2) {
-                input.classList.remove('incorrect');
-                input.classList.add('correct');
-                feedback.textContent = "✓ Correct! 2 digits (0 and 1) means Base 2 — this is binary!";
+            if (answer === 'B') {
+                feedback.textContent = "✓ Correct! Option B specifies the colour (red), the shape (circle), the size (5cm radius), and the position (centre of the page). There's no room for misinterpretation — a robot could follow this exactly.";
                 feedback.className = 'feedback success show';
+            } else {
+                feedback.textContent = "Not quite. Option B is the most precise because it specifies colour, shape, size, AND position. The other options all leave room for interpretation — \"nice\", \"something\", and \"somewhere\" could mean many different things.";
+                feedback.className = 'feedback error show';
+            }
+            
+            document.getElementById('next-3').disabled = false;
+            document.getElementById('notes-3').style.display = 'block';
+        }
+
+        // Section 4: Concept matching
+        function checkConceptQuiz(questionNum, answer) {
+            const correctAnswers = { 1: 'iteration', 2: 'selection', 3: 'sequence' };
+            const buttons = document.querySelectorAll(`#concept-quiz-${questionNum} .option-btn`);
+            const feedback = document.getElementById(`concept-feedback-${questionNum}`);
+            const isCorrect = answer === correctAnswers[questionNum];
+            
+            buttons.forEach(btn => {
+                btn.disabled = true;
+                const btnAnswer = btn.textContent.toLowerCase();
+                if (btnAnswer === correctAnswers[questionNum]) {
+                    btn.classList.add('correct');
+                } else if (btnAnswer === answer && !isCorrect) {
+                    btn.classList.add('incorrect');
+                }
+            });
+
+            const explanations = {
+                1: { correct: "The phrase 'each plate... until the stack is empty' tells us we're repeating an action. That's iteration!", wrong: "Look for the repetition — 'each plate... until the stack is empty' means we keep doing the same thing over and over. That's iteration." },
+                2: { correct: "The word 'IF' is the key! We're making a decision based on whether the light is red. That's selection.", wrong: "The word 'IF' tells us we're making a choice based on a condition. That's selection — different things happen depending on the situation." },
+                3: { correct: "These are just three steps happening one after another — no choices, no repetition. Pure sequence!", wrong: "There's no IF (selection) and nothing repeats (iteration). It's just steps in order — that's sequence." }
+            };
+
+            if (isCorrect) {
+                feedback.textContent = `✓ Correct! ${explanations[questionNum].correct}`;
+                feedback.className = 'feedback success show';
+                conceptQuizAnswers[questionNum] = true;
+            } else {
+                feedback.textContent = `Not quite. ${explanations[questionNum].wrong}`;
+                feedback.className = 'feedback error show';
+                conceptQuizAnswers[questionNum] = true; // Mark as attempted
+            }
+            
+            // Check if all concept quizzes are answered
+            if (Object.values(conceptQuizAnswers).every(v => v === true)) {
                 document.getElementById('next-4').disabled = false;
                 document.getElementById('notes-4').style.display = 'block';
-            } else {
-                input.classList.add('incorrect');
-                feedback.textContent = "Remember the pattern: the base equals the number of digits available.";
-                feedback.className = 'feedback hint show';
             }
         }
 
-        // Section 5: Binary place values
-        function checkBinaryPlaceValues() {
-            const answers = {
-                'pv-2-0': 1,
-                'pv-2-1': 2,
-                'pv-2-2': 4,
-                'pv-2-3': 8,
-                'pv-2-4': 16,
-                'pv-2-5': 32,
-                'pv-2-6': 64,
-                'pv-2-7': 128
-            };
+        // Section 5: Design task
+        function updateTaskPrompt() {
+            const select = document.getElementById('task-select');
+            const prompt = document.getElementById('task-prompt');
+            const title = document.getElementById('task-title');
             
-            let allCorrect = true;
-            let correctCount = 0;
-
-            for (const [id, expected] of Object.entries(answers)) {
-                const input = document.getElementById(id);
-                const value = parseInt(input.value);
+            // Reset the output and self-check
+            document.getElementById('algorithm-output').classList.remove('show');
+            document.getElementById('self-check-card').style.display = 'none';
+            document.getElementById('copy-prompt').classList.remove('show');
+            
+            // Clear checkboxes
+            for (let i = 1; i <= 4; i++) {
+                document.getElementById(`check-${i}`).checked = false;
+            }
+            
+            // Clear inputs
+            document.querySelectorAll('#step-inputs .input-field').forEach(input => {
+                input.value = '';
+            });
+            
+            if (select.value) {
+                prompt.style.display = 'block';
                 
-                if (value === expected) {
-                    input.classList.remove('incorrect');
-                    input.classList.add('correct');
-                    correctCount++;
-                } else {
-                    input.classList.remove('correct');
-                    if (input.value !== '') input.classList.add('incorrect');
-                    allCorrect = false;
-                }
-            }
-
-            const feedback = document.getElementById('binary-pv-feedback');
-            
-            if (allCorrect) {
-                feedback.textContent = "✓ Perfect! These are the 8-bit binary place values: 1, 2, 4, 8, 16, 32, 64, 128.";
-                feedback.className = 'feedback success show';
-                document.getElementById('next-5').disabled = false;
-                document.getElementById('notes-5').style.display = 'block';
-            } else if (correctCount >= 4) {
-                feedback.textContent = `Good progress! ${correctCount}/8 correct. Remember: each value is double the previous one.`;
-                feedback.className = 'feedback hint show';
+                const titles = {
+                    'toast': 'Making Toast',
+                    'teeth': 'Brushing Your Teeth',
+                    'login': 'Logging Into a Game'
+                };
+                title.textContent = `Write your algorithm for: ${titles[select.value]}`;
             } else {
-                feedback.textContent = "Hint: 2^0=1, 2^1=2, 2^2=4... Each one is double the previous.";
-                feedback.className = 'feedback hint show';
+                prompt.style.display = 'none';
             }
         }
 
-        // Section 6: Conversion practice
-        function checkConversion1010() {
-            const input = document.getElementById('convert-1010');
-            const feedback = document.getElementById('convert-1010-feedback');
-            const answer = parseInt(input.value);
-
-            if (answer === 10) {
-                input.classList.remove('incorrect');
-                input.classList.add('correct');
-                feedback.textContent = "✓ Correct! 1010 = 8 + 2 = 10. The 8 and 2 positions are ON.";
-                feedback.className = 'feedback success show';
-                document.getElementById('next-6').disabled = false;
-                document.getElementById('notes-6').style.display = 'block';
-            } else {
-                input.classList.add('incorrect');
-                feedback.textContent = "Look at which positions have a 1: the 8 column and the 2 column. Add those place values.";
-                feedback.className = 'feedback hint show';
-            }
+        function toggleExample() {
+            const content = document.getElementById('example-content');
+            content.classList.toggle('show');
         }
 
-        // Section 7: Interactive converter
-        function toggleBit(element) {
-            const statusEl = element.nextElementSibling;
+        function generateAlgorithmOutput() {
+            const inputs = document.querySelectorAll('#step-inputs .input-field');
+            const outputList = document.getElementById('algorithm-output-list');
+            const output = document.getElementById('algorithm-output');
+            const selfCheck = document.getElementById('self-check-card');
             
-            if (element.classList.contains('off')) {
-                element.classList.remove('off');
-                element.classList.add('on');
-                element.textContent = '1';
-                statusEl.textContent = 'on';
-                statusEl.classList.add('on');
-            } else {
-                element.classList.remove('on');
-                element.classList.add('off');
-                element.textContent = '0';
-                statusEl.textContent = 'off';
-                statusEl.classList.remove('on');
-            }
-            updateDenaryResult();
-        }
-
-        function updateDenaryResult() {
-            const bits = document.querySelectorAll('#section-7 .bit-switch');
-            let total = 0;
-            let calcParts = [];
+            // Clear previous output
+            outputList.innerHTML = '';
             
-            bits.forEach(bit => {
-                if (bit.classList.contains('on')) {
-                    const value = parseInt(bit.dataset.value);
-                    total += value;
-                    calcParts.push(value);
+            // Collect non-empty steps
+            let hasContent = false;
+            inputs.forEach(input => {
+                if (input.value.trim()) {
+                    hasContent = true;
+                    const li = document.createElement('li');
+                    li.textContent = input.value.trim();
+                    outputList.appendChild(li);
                 }
             });
             
-            document.getElementById('denary-result').textContent = total;
-            
-            if (calcParts.length === 0) {
-                document.getElementById('calculation').textContent = 'Toggle bits above to build a number';
+            if (hasContent) {
+                output.classList.add('show');
+                selfCheck.style.display = 'block';
+                
+                // Scroll to the output
+                output.scrollIntoView({ behavior: 'smooth', block: 'center' });
             } else {
-                const calcString = calcParts.map(v => `<span class="active-bit">${v}</span>`).join(' + ');
-                document.getElementById('calculation').innerHTML = calcString + ` = <strong>${total}</strong>`;
+                alert('Please enter at least one step before self-assessing.');
             }
         }
 
-        // Allow Enter key to submit
-        document.querySelectorAll('.input-field').forEach(input => {
-            input.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    const btn = this.parentElement.querySelector('.check-btn');
-                    if (btn) btn.click();
+        function checkSelfAssessment() {
+            const checkboxes = [
+                document.getElementById('check-1'),
+                document.getElementById('check-2'),
+                document.getElementById('check-3'),
+                document.getElementById('check-4')
+            ];
+            
+            const allChecked = checkboxes.every(cb => cb.checked);
+            const copyPrompt = document.getElementById('copy-prompt');
+            
+            if (allChecked) {
+                copyPrompt.classList.add('show');
+            } else {
+                copyPrompt.classList.remove('show');
+            }
+        }
+
+        // Section 6: Final quiz
+        function checkFinalQuiz(questionNum, answer) {
+            const correctAnswers = { 1: 'B', 2: 'B', 3: 'B', 4: 'C', 5: 'B' };
+            const buttons = document.querySelectorAll(`#final-q${questionNum} .option-btn`);
+            const feedback = document.getElementById(`final-feedback-${questionNum}`);
+            const isCorrect = answer === correctAnswers[questionNum];
+            
+            buttons.forEach(btn => {
+                btn.disabled = true;
+                if (btn.textContent.startsWith(correctAnswers[questionNum] + ')')) {
+                    btn.classList.add('correct');
+                } else if (btn.textContent.startsWith(answer + ')') && !isCorrect) {
+                    btn.classList.add('incorrect');
                 }
             });
-        });
+
+            const explanations = {
+                1: { correct: "An algorithm is a set of step-by-step instructions — exactly what we've been learning about!", wrong: "Remember: an algorithm is a set of step-by-step instructions to complete a task. It's not a computer, a language, or an equation." },
+                2: { correct: "'500ml' is specific and measurable. 'Some' is vague — different people would add different amounts.", wrong: "'500ml' is more precise than 'some' because it's specific and measurable. A robot would know exactly what to do." },
+                3: { correct: "Step 1 says to put filling on bread, but we haven't got the bread yet! That comes in Step 2. The steps are in the wrong order.", wrong: "Look at Step 1 — how can we put filling on bread if we haven't got the bread yet? The steps are in the wrong order." },
+                4: { correct: "The word 'REPEAT... UNTIL' tells us this is iteration — repeating an action until a condition is met.", wrong: "'REPEAT... UNTIL' is the language of iteration — a loop that continues until a condition is met." },
+                5: { correct: "Exactly! Computers have no common sense — they can only do exactly what you tell them, so instructions must be precise.", wrong: "The key is that computers follow instructions exactly. They can't interpret or guess what you meant — that's why precision matters." }
+            };
+
+            if (isCorrect) {
+                feedback.textContent = `✓ Correct! ${explanations[questionNum].correct}`;
+                feedback.className = 'feedback success show';
+                if (!finalQuizAnswers[questionNum]) {
+                    finalQuizScore++;
+                }
+            } else {
+                feedback.textContent = `✗ ${explanations[questionNum].wrong}`;
+                feedback.className = 'feedback error show';
+            }
+            
+            finalQuizAnswers[questionNum] = true; // Mark as attempted
+            
+            // Check if all questions answered
+            if (Object.values(finalQuizAnswers).every(v => v === true)) {
+                showFinalScore();
+            }
+        }
+
+        function showFinalScore() {
+            const scoreCard = document.getElementById('score-card');
+            const scoreValue = document.getElementById('final-score');
+            const scoreMessage = document.getElementById('score-message');
+            
+            scoreCard.style.display = 'block';
+            scoreValue.textContent = `${finalQuizScore}/5`;
+            
+            if (finalQuizScore === 5) {
+                scoreMessage.textContent = "🌟 Perfect score! You've mastered the basics of algorithms. Excellent work!";
+            } else if (finalQuizScore >= 4) {
+                scoreMessage.textContent = "Great work! You have a solid understanding of algorithms. Review any questions you got wrong before moving on.";
+            } else if (finalQuizScore >= 3) {
+                scoreMessage.textContent = "Good effort! You're getting there. Consider revisiting the sections where you made mistakes.";
+            } else {
+                scoreMessage.textContent = "Keep practising! Review the earlier sections and try the quiz again. Remember: learning takes time, and it's okay to need more practice.";
+            }
+            
+            document.getElementById('next-6').disabled = false;
+            
+            // Scroll to score
+            scoreCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
     </script>
 </body>
 </html>
